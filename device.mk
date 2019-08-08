@@ -484,7 +484,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
     vendor.qti.hardware.wifi.hostapd@1.1.vendor \
-    vendor.qti.hardware.wifi.supplicant@2.1.vendor
+    vendor.qti.hardware.wifi.supplicant@2.1.vendor \
+    wifi-mac-generator
 
 # WiFi Display
 PRODUCT_PACKAGES += \
