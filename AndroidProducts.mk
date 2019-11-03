@@ -5,4 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/syberia_davinci.mk
+    $(LOCAL_DIR)/aosp_davinci.mk
+
+COMMON_LUNCH_CHOICES := \
+    aosp_davinci-userdebug
