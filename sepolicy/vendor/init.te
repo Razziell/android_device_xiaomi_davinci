@@ -4,3 +4,8 @@ allow init {
 }:hwservice_manager find;
 allow init hwservicemanager:binder call;
 allow init self:qipcrtr_socket read;
+allow init sysfs_graphics:lnk_file { r_file_perms setattr };
+allow init sysfs_graphics:file { r_file_perms setattr };
+allow init self:qipcrtr_socket create;
+allow init ion_device:chr_file ioctl;
+allow init hal_perf_default:binder call;
