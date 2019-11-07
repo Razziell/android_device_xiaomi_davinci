@@ -223,7 +223,7 @@ BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_davinci
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_davinci
 TARGET_RECOVERY_DEVICE_MODULES := libinit_davinci
 
 # WiFi
@@ -243,4 +243,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/davinci/BoardConfigVendor.mk
--include vendor/xiaomi/sm6150-common/BoardConfigVendor.mk
