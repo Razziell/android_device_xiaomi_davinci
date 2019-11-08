@@ -77,8 +77,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Properties
--include $(LOCAL_PATH)/device-props.mk
--include $(LOCAL_PATH)/common-props.mk
+-include $(LOCAL_PATH)/vendor_props.mk
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -95,23 +94,23 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio@5.0 \
-    android.hardware.audio.common@5.0 \
-    android.hardware.audio.common@5.0-util \
     android.hardware.audio@5.0-impl \
-    android.hardware.audio.effect@5.0 \
     android.hardware.audio.effect@5.0-impl \
-    android.hardware.soundtrigger@2.2-impl:32 \
+    android.hardware.soundtrigger@2.1-impl \
     audio.a2dp.default \
+    audio.primary.sm6150 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
+    libaudioroute \
+    libcirrusspkrprot \
+    libhdmiedid \
+    libhfp \
+    libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libqcomvoiceprocessing \
-    libqcompostprocbundle \
+    libsndmonitor \
+    libspkrprot \
     libvolumelistener \
     tinymix
 
