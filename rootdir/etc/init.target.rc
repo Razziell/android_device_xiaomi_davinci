@@ -229,15 +229,6 @@ service ppd /vendor/bin/mm-pp-dpps
     socket pps stream 0660 system system
     disabled
 
-on property:init.svc.hwcomposer-2-1=stopped
-    stop ppd
-
-on property:init.svc.hwcomposer-2-1=running
-    start ppd
-
-on property:init.svc.hwcomposer-2-1=restarting
-    stop ppd
-
 on property:vendor.audio.cit.spkcal.copy=true
     copy /data/vendor/cit/tfa9894_chk.txt /mnt/vendor/persist/audio/tfa9894_chk.txt
     chmod 666 /mnt/vendor/persist/audio/tfa9894_chk.txt
