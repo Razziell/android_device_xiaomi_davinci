@@ -8,9 +8,11 @@ DEVICE_PATH := device/xiaomi/davinci
 
 BOARD_VENDOR := xiaomi
 
+WITH_ADB := true
+
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
@@ -76,7 +78,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# CnE
+# CNE and DPM
 BOARD_USES_QCNE := true
 
 # Dex
@@ -88,14 +90,6 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
-
-# Display
-TARGET_HAS_WIDE_COLOR_DISPLAY := true
-TARGET_HAS_HDR_DISPLAY := true
-TARGET_USES_DISPLAY_RENDER_INTENTS := true
-
-# DPM
-BOARD_USES_DPM := true
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
@@ -162,7 +156,6 @@ TARGET_PROVIDES_KEYMASTER := true
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
-TARGET_PROVIDES_LIBPLATFORMCONFIG := true
 
 # NFC
 TARGET_USES_NQ_NFC := true
@@ -181,11 +174,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 119332122624
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
-    /vendor/bt_firmware:/bt_firmware \
-    /vendor/dsp:/dsp \
-    /vendor/firmware_mnt:/firmware
 
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -215,7 +203,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
-# Security
+# Security patch level
 VENDOR_SECURITY_PATCH := 2018-08-05
 
 # Sepolicy
@@ -225,12 +213,13 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+# Telephony
+TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 
 # Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 BOARD_VNDK_VERSION := current
-PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_VENDOR_MOVE_ENABLED := true
 
 # Vendor init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_davinci

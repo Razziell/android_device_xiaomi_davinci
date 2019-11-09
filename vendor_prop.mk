@@ -97,30 +97,49 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive \
-    vendor.qcom.bluetooth.soc=cherokee
+    vendor.qcom.bluetooth.soc=cherokee \
+    persist.vendor.bt.aac_frm_ctl.enabled=true \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    camera.disable_zsl_mode=1
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
-# Charger
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.chg.max_volt_mv=9000
-
-# CNE/DPM
+# CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
+	
+# Ccodec
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.ccodec=1 \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
 
-# Crypto
- PRODUCT_PROPERTY_OVERRIDES += \
-    ro.crypto.allow_encrypt_override=true \
-    ro.crypto.volume.filenames_mode=aes-256-cts
+# Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.hw=0 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.hw=0 \
+    debug.sf.latch_unsignaled=1 \
+    ro.opengles.version=196610 \
+    ro.vendor.display.sensortype=2 \
+    vendor.display.comp_mask=0 \
+    vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0 \
+    vendor.display.disable_decimation=1 \
+    vendor.display.disable_excl_rect=0 \
+    vendor.display.disable_hw_recovery_dump=1 \
+    vendor.display.disable_inline_rotator=1 \
+    vendor.display.disable_scaler=0 \
+    vendor.display.disable_ui_3d_tonemap=1 \
+    vendor.display.enable_default_color_mode=0 \
+    vendor.display.enable_null_display=0 \
+    vendor.display.enable_optimize_refresh=1 \
+    vendor.gralloc.disable_ubwc=0 \
+    ro.sf.lcd_density=440
 
-# Dalvik VM
+# Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapstartsize=8m \
     dalvik.vm.heapmaxfree=8m \
@@ -129,61 +148,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heaptargetutilization=0.75 \
     ro.dalvik.vm.native.bridge=0
 
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.mdpcomp.logs=0 \
-    persist.sys.sf.color_saturation=1.0 \
-    ro.colorpick_adjust=true \
-    ro.vendor.display.sensortype=2 \
-    vendor.display.comp_mask=0 \
-    vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0 \
-    vendor.display.disable_decimation=1 \
-    vendor.display.disable_excl_rect=0 \
-    vendor.display.disable_inline_rotator=1 \
-    vendor.display.disable_scaler=0 \
-    vendor.display.enable_null_display=0 \
-    vendor.display.enable_default_color_mode=0
-
-# Display density
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=440
-
-# Display post-processing
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.display.type=oled \
-    ro.vendor.display.ad=1 \
-    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
-    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg
-
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
-# FM
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.bluetooth.soc=cherokee \
-    vendor.hw.fm.init=0
+# FM Radio/BT
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    vendor.bluetooth.soc=cherokee
 
-# Factory Reset Protection
+# FRP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
-# GPS/GNSS
+# IMS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.backup.ntpServer=0.pool.ntp.org \
-    sys.qca1530=detect
-
-# Graphics
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.enable_hwc_vds=1 \
-    dev.pm.dyn_samplingrate=1 \
-    persist.demo.hdmirotationlock=false \
-    persist.sys.force_sw_gles=0 \
-    ro.opengles.version=196610
-
-# IO CGroup
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.iocgrp.config=1
+    persist.dbg.ims_volte_enable=1 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.dbg.wfc_avail_ovr=1
 
 # Keystore
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -200,73 +182,47 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-scan=true \
     persist.mm.enable.prefetch=true
 
-# Memory Optimisations
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true
-
-# Misc
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.job_delay=true \
-    persist.vendor.qg.log_level=1 \
-    sys.vendor.shutdown.waittime=500 # ro.kernel.qemu.gles=0
-
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default
 
-# NetFlix
+# Netmgr
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.data.mode=concurrent
+
+# Netflix
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q6150-17263-1
 
-# Netmgr
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.data.iwlan.enable=true \
-    persist.vendor.data.mode=concurrent \
-    ro.vendor.use_data_netmgrd=true
-
-# Network Location Provider
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.location.osnlp.package=com.google.android.gms \
-    ro.location.osnlp.region.package=""
-
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
-    vendor.iop.enable_uxe=0
+    ro.vendor.extension_library=libqti-perfd-client.so
 
-# Perf Stack
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    vendor.perf.dolphin.enable=false \
-    ro.vendor.qti.config.zram=true \
-    vendor.iop.enable_prefetch_ofr=0 \
-    vendor.perf.gestureflingboost.enable=true \
-    vendor.perf.workloadclassifier.enable=true
+# Qualcomm / OEM Unlock
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.oem_unlock_supported=1 \
+    ro.vendor.qti.va_aosp.support=1
 
-# Qualcomm System Daemon
+# RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.qcomsysd.enabled=1
-
-# Radio/RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    DEVICE_PROVISIONED=1 \
-    keyguard.no_require_sim=true \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.radio.atfwd.start=false \
     persist.radio.multisim.config=dsds \
+    persist.sys.fflag.override.settings_network_and_internet_v2=true \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.atfwd.start=true \
     persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.data_con_rprt=1 \
+    persist.vendor.radio.enable_temp_dds=true \
+    persist.vendor.radio.enableadvancedscan=true \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.procedure_bytes=SKIP \
     persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.report_codec=1 \
     persist.vendor.radio.sib16_support=1 \
     ril.subscription.types=NV,RUIM \
-    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.telephony.default_network=22,22 \
     telephony.lteOnCdmaDevice=1
-
-# Simulate sdcard on /data/media
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.fuse_sdcard=true
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -277,29 +233,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
-# Time
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true
-
-# VoLTE
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1  \
-    persist.dbg.wfc_avail_ovr=1
-
-# WLAN
-PRODUCT_PROPERTY_OVERRIDES += \
-    config.disable_rtt=true \
-    persist.vendor.data.iwlan.enable=true \
-    ro.wlan.chip=39xx
-
-# Wlan
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.wlan.mimo=0 \
-    ro.wlan.vendor=qcom
-
-# WiFi Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1 \
-    persist.hwc.enable_vds=1 \
-    persist.sys.wfd.virtual=0
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_phase_offset_ns=1500000
