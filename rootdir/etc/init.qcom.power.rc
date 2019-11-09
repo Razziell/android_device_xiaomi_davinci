@@ -254,11 +254,6 @@ service vendor.charger /sbin/chargeonlymode
     group system graphics
     seclabel u:r:healthd:s0
 
-service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
-    class main
-    user root
-    group system wakelock
-
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
