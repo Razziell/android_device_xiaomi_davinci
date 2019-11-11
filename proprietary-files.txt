@@ -175,6 +175,8 @@ vendor/etc/camera/score_icon.png
 vendor/etc/camera/sdm_ys_32p_120_21_5_perturb50.bin
 vendor/etc/camera/visidon_clearshot_params_algoup.xml
 vendor/etc/camera/watermark_font_2300_3199.dat
+vendor/lib/libswvdec.so
+vendor/lib/libswregistrationalgo.so
 vendor/lib/camera/com.qti.sensor.imx582_davinci.so
 vendor/lib/camera/com.qti.sensor.imx586_davinci.so
 vendor/lib/camera/com.qti.sensor.ov8856_davinci.so
@@ -244,6 +246,8 @@ vendor/lib/camera/components/com.visidon.node.clearshot.so
 vendor/lib/camera/components/com.visidon.node.sr.so
 vendor/lib/camera/components/libdepthmapwrapper.so
 vendor/lib/camera/components/libmmcamera_cac3.so
+vendor/lib64/libswvdec.so
+vendor/lib64/libswregistrationalgo.so
 vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
 vendor/lib64/camera/com.qti.sensor.imx586_davinci.so
 vendor/lib64/camera/com.qti.sensor.ov8856_davinci.so
