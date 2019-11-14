@@ -32,6 +32,7 @@ TARGET_SCREEN_WIDTH := 1080
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hcef.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.hifi_sensors.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.hifi_sensors.xml \
@@ -96,25 +97,26 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-service \
+    android.hardware.audio@5.0 \
+    android.hardware.audio.common@5.0 \
+    android.hardware.audio.common@5.0-util \
+    android.hardware.audio@2.0-impl \
     android.hardware.audio@5.0-impl \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio.effect@5.0 \
     android.hardware.audio.effect@5.0-impl \
-    android.hardware.soundtrigger@2.1-impl \
+    android.hardware.audio.effect@2.0-service \
+    android.hardware.soundtrigger@2.2-impl \
     audio.a2dp.default \
-    audio.primary.sm6150 \
     audio.r_submix.default \
     audio.usb.default \
     libaudio-resampler \
-    libaudioroute \
-    libcirrusspkrprot \
-    libhdmiedid \
-    libhfp \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libsndmonitor \
-    libspkrprot \
     libvolumelistener \
+    libtinycompress \
     tinymix
 
 PRODUCT_COPY_FILES += \
@@ -144,7 +146,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    libbthost_if
+    audio.bluetooth.default
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -346,18 +348,20 @@ PRODUCT_PACKAGES += \
     com.android.nfc_extras \
     com.gsma.services.nfc \
     com.nxp.nfc.nq \
-    jcos_nq_client \
-    libp61-jcop-kit \
-    ls_nq_client \
-    nfc_nci.nqx.default \
+    libnqnfc_nci_jni \
+    nfc_nci.nqx.default.hw \
     NQNfcNci \
+    nqnfcee_access.xml \
     nqnfcse_access.xml \
     Tag \
-    se_nq_extn_client \
-    vendor.nxp.hardware.nfc@1.1-service
+    vendor.nxp.hardware.nfc@1.2-service
+
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/nxp/opensource/pn5xx
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/libnfc-nxp_RF.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # Power
