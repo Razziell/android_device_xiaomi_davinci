@@ -388,7 +388,8 @@ PRODUCT_COPY_FILES += \
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
-    libqti_vndfwk_detect.vendor
+    libqti_vndfwk_detect \
+    libvndfwk_detect_jni.qti
 
 # RCS
 PRODUCT_PACKAGES += \
