@@ -610,18 +610,23 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
-# DRM - Widevine
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+# DRM - Widevine (some blobs with raphael)
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine|67f2fa979c23cf11fd48db5a79a424286838f139
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib/libbase64.so
 vendor/lib/libcpion.so
 vendor/lib/libhdcpsrm.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libwvhidl.so
+vendor/lib/liboemcrypto.so|ad286cf38f8b00a5c9b0b0f424e4a5bd1f47f046
+vendor/lib/libwvhidl.so|20eba2049f801dcec3a8161b1bf73a8c326d54c2
+vendor/lib/mediadrm/libdrmclearkeyplugin.so|756ef69e6cdb3bb0b9bcf5973b5816c471a4a80b
+vendor/lib/mediadrm/libwvdrmengine.so|caf5ab78d04fe5a2d2ec63f9babd85a985241c58
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
 vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so
+vendor/lib64/liboemcrypto.so|e44fa8bf9bed1541342390bf316c34fe9f29cc4e
+vendor/lib64/libwvhidl.so|c5539056eda835d42605f0d8b7ce63f1fd550759
+vendor/lib64/mediadrm/libdrmclearkeyplugin.so|0289025f5a34f3c7e04d816b81ca21a2153c32f4
+vendor/lib64/mediadrm/libwvdrmengine.so|bbba8d2234fb829b675ba84d35b4acf82970cc8b
 
 # ESE-Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
@@ -1131,7 +1136,8 @@ product/framework/embmslibrary.jar
 product/framework/qcrilhook.jar
 vendor/bin/ATFWD-daemon
 vendor/bin/hw/qcrild
-vendor/bin/netmgrd
+#netmgrd from  TheMuppets/proprietary_vendor_oneplus/sm8150-common
+vendor/bin/netmgrd|90cba32bb3de3ecb5cb571ecbf0136ceb780cda3
 vendor/bin/port-bridge
 vendor/bin/qrtr-cfg
 vendor/bin/qrtr-lookup
