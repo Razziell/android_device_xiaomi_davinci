@@ -151,6 +151,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.frameworks.displayservice@1.0 \
+    camera.device@3.2-impl \
+    camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.device@1.0.vendor \
@@ -160,6 +162,7 @@ PRODUCT_PACKAGES += \
 # Camera Motor
 PRODUCT_PACKAGES += \
     libgui_vendor \
+    libdng_sdk.vendor \
     vendor.lineage.camera.motor@1.0-service.xiaomi_davinci
 
 # Codec2 modules
@@ -357,12 +360,17 @@ PRODUCT_PACKAGES += \
     vendor.nxp.hardware.nfc@1.2-service
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/nxp/opensource/pn5xx
+    vendor/nxp/opensource/sn100x
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/libnfc-nxp_RF.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+# NFC - Secure Element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0 \
+    SecureElement
 
 # Power
 PRODUCT_PACKAGES += \
@@ -401,14 +409,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4 \
     android.hardware.radio.config@1.1 \
-    android.hardware.secure_element@1.0 \
     librmnetctl \
     libxml2 \
     libprotobuf-cpp-full
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy
+    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/codec2.software.ext.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/codec2.software.ext.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -452,6 +460,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
+
+# VNDK
+#PRODUCT_TARGET_VNDK_VERSION := 29
+PRODUCT_PACKAGES += \
+    vndk_package
 
 # WiFi
 PRODUCT_PACKAGES += \
