@@ -210,6 +210,7 @@ vendor/etc/camera/visidon_clearshot_params_algoup.xml
 vendor/etc/camera/watermark_font_2300_3199.dat
 vendor/lib/libmialgo_basic.so
 vendor/lib/libmialgo_utils.so
+vendor/lib/libmialgo_rfs.so
 vendor/lib/libswvdec.so
 vendor/lib/libswregistrationalgo.so
 vendor/lib/camera/com.qti.sensor.imx582_davinci.so
@@ -284,6 +285,7 @@ vendor/lib/camera/components/libmmcamera_cac3.so
 vendor/lib64/libarcsoft_preview_deflicker.so
 vendor/lib64/libmialgo_basic.so
 vendor/lib64/libmialgo_utils.so
+vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/camera/com.qti.sensor.imx582_davinci.so
