@@ -49,7 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     ro.bluetooth.a2dp_offload.supported=true \
     vendor.qcom.bluetooth.soc=cherokee \
@@ -82,7 +81,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
     ro.opengles.version=196610 \
-    ro.vendor.display.sensortype=2 \
     vendor.display.comp_mask=0 \
     vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0 \
     vendor.display.disable_decimation=1 \
@@ -96,6 +94,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_optimize_refresh=1 \
     vendor.gralloc.disable_ubwc=0 \
     ro.sf.lcd_density=440
+
+# Display post-processing
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.display.type=oled \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    ro.vendor.display.sensortype=2
 
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
