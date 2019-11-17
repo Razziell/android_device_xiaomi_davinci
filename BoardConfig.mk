@@ -164,7 +164,8 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Power
 TARGET_USES_NON_LEGACY_POWERHAL := true
-TARGET_TAP_TO_WAKE_EVENT_NODE := "/dev/input/event2"
+TARGET_WLAN_POWER_STAT := "/sys/kernel/wlan/power_stats"
+TARGET_TAP_TO_WAKE_NODE := "/dev/input/event2"
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true

@@ -157,7 +157,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.device@1.0.vendor \
     libxml2 \
-    Snap
+    Camera2
 
 # Camera Motor
 PRODUCT_PACKAGES += \
@@ -182,8 +182,8 @@ PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-service
 
 # Device-specific settings
-#PRODUCT_PACKAGES += \
-#    XiaomiParts
+PRODUCT_PACKAGES += \
+    XiaomiParts
 
 # Display/Graphics
 PRODUCT_PACKAGES += \
@@ -207,7 +207,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.2-service.clearkey
+    android.hardware.drm@1.2-service.clearkey \
+    android.hardware.drm@1.2-service.widevine
 
 # Fingerprint feature
 PRODUCT_COPY_FILES += \
@@ -374,10 +375,10 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service.xiaomi_sm6150
+    android.hardware.power@1.2-service.davinci
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/config/msmsteppe/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
+    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
     $(LOCAL_PATH)/configs/perf/perf-profile0.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perf-profile0.conf
 
 # QTI
@@ -388,8 +389,8 @@ PRODUCT_COPY_FILES += \
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
-    libqti_vndfwk_detect \
-    libvndfwk_detect_jni.qti
+    libqti_vndfwk_detect.vendor \
+    libvndfwk_detect_jni.qti.vendor
 
 # RCS
 PRODUCT_PACKAGES += \
