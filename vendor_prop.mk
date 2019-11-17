@@ -74,6 +74,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0
 
+
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapsize=512m \
+    dalvik.vm.heaptargetutilization=0.75 \
+    ro.dalvik.vm.native.bridge=0
+
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.hw=0 \
@@ -103,18 +113,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
     ro.vendor.display.sensortype=2
 
-# Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heapmaxfree=8m \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heaptargetutilization=0.75 \
-    ro.dalvik.vm.native.bridge=0
-
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
+
+# IMS - disable debug spam
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.ims.disableADBLogs=1 \
+    persist.vendor.ims.disableDebugLogs=1 \
+    persist.vendor.ims.disableIMSLogs=1 \
+    persist.vendor.ims.disableQXDMLogs=1
 
 # FM Radio/BT
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -123,6 +131,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
 # Keystore
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore_desede=true
@@ -146,15 +155,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0 \
     persist.vendor.data.iwlan.enable=true \
-    persist.vendor.data.mode=concurrent
+    persist.vendor.data.mode=concurrent \
+    ro.vendor.use_data_netmgrd=true
 
 # Netflix
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q6150-17263-1
 
-# Perf
+# Perf Stack
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so
+    ro.vendor.extension_library=libqti-perfd-client.so \
+    vendor.perf.dolphin.enable=false \
+    ro.vendor.qti.config.zram=true \
+    vendor.iop.enable_prefetch_ofr=0 \
+    vendor.perf.gestureflingboost.enable=true \
+    vendor.perf.workloadclassifier.enable=true
 
 # Qualcomm / OEM Unlock
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -164,20 +179,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds \
+    DEVICE_PROVISIONED=1 \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.default_cdma_sub=0 \
+    ro.telephony.default_network=22,22 \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1 \
+    persist.radio.NO_STAPA=1 \
     persist.sys.fflag.override.settings_network_and_internet_v2=true \
-    persist.vendor.radio.apm_sim_not_pwdn=1 \
-    persist.vendor.radio.atfwd.start=true \
-    persist.vendor.radio.custom_ecc=1 \
-    persist.vendor.radio.enable_temp_dds=true \
-    persist.vendor.radio.enableadvancedscan=true \
+    persist.radio.VT_CAM_INTERFACE=1 \
+    persist.vendor.data.iwlan.enable=true \
+    persist.vendor.radio.data_con_rprt=1 \
     persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.procedure_bytes=SKIP \
-    persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.redir_party_num=1 \
     persist.vendor.radio.report_codec=1 \
-    persist.vendor.radio.sib16_support=1 \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_network=22,22 \
     telephony.lteOnCdmaDevice=1
 
 # SurfaceFlinger
@@ -194,3 +210,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_app_phase_offset_ns=15000000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
     debug.sf.early_phase_offset_ns=1500000
+
+# VoLTE
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.dbg.volte_avail_ovr=1 \
+    persist.dbg.vt_avail_ovr=1  \
+    persist.dbg.wfc_avail_ovr=1
+
+# WLAN
+PRODUCT_PROPERTY_OVERRIDES += \
+    config.disable_rtt=true \
+    persist.vendor.data.iwlan.enable=true \
+    ro.wlan.chip=39xx
