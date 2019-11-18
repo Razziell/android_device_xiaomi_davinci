@@ -60,12 +60,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.sat.fallback.dist=40 \
+    persist.camera.sat.fallback.dist.d=10 \
+    persist.camera.sat.fallback.luxindex=310 \
+    persist.camera.sat.fallback.lux.d=50 \
+    persist.vendor.camera.enableNCSService=TRUE \
+    persist.vendor.camera.enableTOFInterface=TRUE \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
-# CNE and DPM
+# CNE/DPM
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.dpm.feature=1 \
+    persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
 
 # Ccodec
@@ -132,6 +139,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
+# GPS/GNSS
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.backup.ntpServer=0.pool.ntp.org \
+    sys.qca1530=detect
+
 # Keystore
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore_desede=true
@@ -147,9 +159,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.enable-scan=true \
     persist.mm.enable.prefetch=true
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.thumbnail.prefer_hw_codecs=true \
+    media.settings.xml=/system/etc/media_profiles_vendor.xml \
+    vendor.mm.enable.qcom_parser=63963135
+
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default
+
+
+# Netflix
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.netflix.bsp_rev=Q6150-17263-1
 
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -158,9 +180,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
-# Netflix
+# Network Location Provider
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q6150-17263-1
+    ro.location.osnlp.package=com.google.android.gms \
+    ro.location.osnlp.region.package=""
 
 # Perf Stack
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -176,24 +199,21 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.oem_unlock_supported=1 \
     ro.vendor.qti.va_aosp.support=1
 
-# RIL
+# Radio/RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.multisim.config=dsds \
     DEVICE_PROVISIONED=1 \
-    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    ril.subscription.types=NV,RUIM \
-    ro.telephony.default_cdma_sub=0 \
-    ro.telephony.default_network=22,22 \
-    persist.dbg.volte_avail_ovr=1 \
-    persist.dbg.vt_avail_ovr=1 \
-    persist.radio.NO_STAPA=1 \
-    persist.sys.fflag.override.settings_network_and_internet_v2=true \
-    persist.radio.VT_CAM_INTERFACE=1 \
-    persist.vendor.data.iwlan.enable=true \
+    keyguard.no_require_sim=true \
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.radio.atfwd.start=false \
+    persist.radio.multisim.config=dsds \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_con_rprt=1 \
-    persist.vendor.radio.force_on_dc=true \
-    persist.vendor.radio.redir_party_num=1 \
-    persist.vendor.radio.report_codec=1 \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.sib16_support=1 \
+    ril.subscription.types=NV,RUIM \
+    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    ro.telephony.default_network=22,22 \
     telephony.lteOnCdmaDevice=1
 
 # SurfaceFlinger
@@ -210,6 +230,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_app_phase_offset_ns=15000000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
     debug.sf.early_phase_offset_ns=1500000
+
+# Time
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.timed.enable=true
 
 # VoLTE
 PRODUCT_PROPERTY_OVERRIDES += \
