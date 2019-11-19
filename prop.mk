@@ -161,7 +161,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml \
     vendor.mm.enable.qcom_parser=63963135
 
 # NFC
@@ -206,6 +205,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0 \
     persist.radio.atfwd.start=false \
     persist.radio.multisim.config=dsds \
+    persist.vendor.data.mode=concurrent \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_con_rprt=1 \
