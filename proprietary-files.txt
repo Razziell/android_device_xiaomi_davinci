@@ -113,12 +113,22 @@ vendor/lib64/soundfx/libasphere.so
 # Audio - hardware
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioroute_ext.so
+vendor/lib/libcirrusspkrprot.so
+vendor/lib/libcomprcapture.so
+vendor/lib/libhdmiedid.so
+vendor/lib/libhfp.so
 vendor/lib/librice.so
+vendor/lib/libspkrprot.so
 vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/hw/sound_trigger.primary.sm6150.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioroute_ext.so
+vendor/lib64/libcirrusspkrprot.so
+vendor/lib64/libcomprcapture.so
+vendor/lib64/libhdmiedid.so
+vendor/lib64/libhfp.so
 vendor/lib64/librice.so
+vendor/lib64/libspkrprot.so
 vendor/lib64/hw/audio.primary.sm6150.so
 vendor/lib64/hw/sound_trigger.primary.sm6150.so
 
