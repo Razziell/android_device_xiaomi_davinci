@@ -472,6 +472,7 @@ vendor/bin/hvdcp_opti
 vendor/etc/init/vendor.qti.hardware.charger_monitor@1.0-service.rc
 
 # Configstore
+-product/framework/vendor.qti.hardware.capabilityconfigstore-V1.0-java.jar
 -vendor/lib/libplatformconfig.so
 -vendor/lib64/libplatformconfig.so
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
@@ -596,6 +597,7 @@ product/lib64/libdpmctmgr.so
 product/lib64/libdpmfdmgr.so
 product/lib64/libdpmframework.so
 product/lib64/libdpmtcm.so
+-product/priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/bin/dpmQmiMgr
 vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
@@ -1152,6 +1154,8 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 product/framework/qti-telephony-common.jar|74adbf98e89531ac385ab5c4cea3c2549a0d24b0
 
 # Radio
+-product/app/atfwd/atfwd.apk
+-product/app/imssettings/imssettings.apk
 -product/app/QtiTelephonyService/QtiTelephonyService.apk
 -product/app/datastatusnotification/datastatusnotification.apk
 -product/app/embms/embms.apk
@@ -1249,6 +1253,12 @@ product/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 product/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
 product/framework/vendor.qti.ims.callinfo-V1.0-java.jar
 product/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
+product/lib64/com.qualcomm.qti.imscmservice@1.0.so
+product/lib64/com.qualcomm.qti.imscmservice@2.0.so
+product/lib64/com.qualcomm.qti.imscmservice@2.1.so
+product/lib64/com.qualcomm.qti.imscmservice@2.2.so
+product/lib64/com.qualcomm.qti.uceservice@2.0.so
+product/lib64/com.qualcomm.qti.uceservice@2.1.so
 product/lib64/lib-imsvideocodec.so
 product/lib64/lib-imsvt.so
 product/lib64/lib-imsvtextutils.so

@@ -260,6 +260,7 @@ PRODUCT_PACKAGES += \
     init.qti.chg_policy.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
+    init.qcom.factory.rc \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     ueventd.qcom.rc \
