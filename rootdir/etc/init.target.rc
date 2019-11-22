@@ -213,21 +213,10 @@ service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
     socket ims_qmid stream 0660 system radio
     group radio log diag
 
-# imsdatadaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsdatadaemon /system/vendor/bin/imsdatadaemon
-    class main
-    user radio
-    socket ims_datad stream 0660 system radio
-    group radio wifi inet log diag
-    disabled
-
 service vendor.imsrcsservice /system/vendor/bin/imsrcsd
     class main
     user radio
     group radio diag inet log
-
-on property:vendor.ims.QMI_DAEMON_STATUS=1
-    start vendor.imsdatadaemon
 
 on property:vold.decrypt=trigger_restart_framework
    start vendor.cnss_diag
