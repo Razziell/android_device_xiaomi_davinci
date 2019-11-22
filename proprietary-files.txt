@@ -191,8 +191,9 @@ vendor/bin/remosaic_daemon
 vendor/etc/camera/CFR_para_T.bin
 vendor/etc/camera/CFR_para_UW.bin
 vendor/etc/camera/CFR_para_W.bin
-vendor/etc/camera/LDC_packdata_xiaomi_F11_src1.dat
-vendor/etc/camera/LDC_packdata_xiaomi_F11_src2.dat
+vendor/etc/camera/LDC_FPC_TUNING_DATA.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x01.bin
+vendor/etc/camera/LDC_PACKDATA_VENDORID_0x07.bin
 vendor/etc/camera/LDC_table_src1.dat
 vendor/etc/camera/LDC_table_src2.dat
 vendor/etc/camera/MIUI_Time.ttf
@@ -614,6 +615,7 @@ vendor/lib/libStDrvInt.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
 vendor/lib/libqisl.so
+vendor/lib/librmp.so
 vendor/lib/librpmb.so
 vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
@@ -626,6 +628,7 @@ vendor/lib64/libStDrvInt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libqisl.so
+vendor/lib64/librmp.so
 vendor/lib64/librpmb.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
@@ -1265,6 +1268,8 @@ product/lib64/lib-imsvtextutils.so
 product/lib64/lib-imsvtutils.so
 product/lib64/libimscamera_jni.so
 product/lib64/libimsmedia_jni.so
+product/lib64/vendor.qti.ims.callinfo@1.0.so
+product/lib64/vendor.qti.ims.rcsconfig@1.0.so
 product/lib64/vendor.qti.imsrtpservice@2.0.so
 product/lib64/vendor.qti.imsrtpservice@2.1.so
 vendor/bin/ims_rtp_daemon
