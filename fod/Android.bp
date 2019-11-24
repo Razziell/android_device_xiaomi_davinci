@@ -13,16 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-xiaomi_sm6150_fod_hal_binary {
+cc_binary {
     relative_install_path: "hw",
     defaults: ["hidl_defaults"],
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci",
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.rc"],
-    srcs: [
-	"service.cpp",
-        "FingerprintInscreen.cpp",
-    ],
-    vendor: true,
+    name: "lineage.biometrics.fingerprint.inscreen@1.0-service.davinci",
+    init_rc: ["lineage.biometrics.fingerprint.inscreen@1.0-service.davinci.rc"],
+    srcs: ["service.cpp", "FingerprintInscreen.cpp"],
     shared_libs: [
         "libbase",
         "libhardware",
@@ -32,6 +28,7 @@ xiaomi_sm6150_fod_hal_binary {
         "libhwbinder",
         "libutils",
         "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
+        "vendor.xiaomi.hardware.displayfeature@1.0",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
     ],
 }
