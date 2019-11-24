@@ -444,6 +444,7 @@
     <ctl name="PRI_MI2S_RX_DL_HL Switch" value="0" />
 
     <!-- Add the Ultrasound mixer controls -->
+    <ctl name="Ultrasound Custom Setting 1" value="0" />
     <ctl name="Ultrasound Enable" value="Off" />
     <ctl name="Ultrasound RampDown" value="Off"/>
     <ctl name="Ultrasound Event" value="0"/>
@@ -556,6 +557,7 @@
         <ctl name="Ultrasound Mode" value="760" />
         <ctl name="Ultrasound Debug Mode" value="1" />
         <ctl name="Ultrasound Log Level" value="7" />
+        <ctl name="Ultrasound Custom Setting 1" value="1" />
     </path>
 
     <path name="ultrasound-proximity-output">
@@ -569,20 +571,25 @@
     <path name="ultrasound-proximity-input">
     </path>
 
-    <path name="ultrasound-gesture1">
+    <path name="ultrasound-cover1">
         <ctl name="Ultrasound Enable" value="On"/>
         <!--  release mode  -->
         <!--ctl name="Ultrasound Mode" value="584"/-->
         <!--  debug mode  -->
-        <ctl name="Ultrasound Mode" value="585"/>
+        <ctl name="Ultrasound Mode" value="764"/>
+        <ctl name="Ultrasound Debug Mode" value="1" />
         <ctl name="Ultrasound Log Level" value="7" />
+        <ctl name="Ultrasound Custom Setting 1" value="3" />
     </path>
 
-    <path name="ultrasound-gesture1-output">
+    <path name="ultrasound-cover1-output">
         <!--  mixer controls for RX use-case  -->
     </path>
 
-    <path name="ultrasound-gesture1-input">
+    <path name="ultrasound-cover1-output handset">
+    </path>
+
+    <path name="ultrasound-cover1-input">
         <!--  mixer controls for TX use-case  -->
     </path>
 
@@ -602,7 +609,7 @@
         <ctl name="RX INT0_2 MUX" value="RX2" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="EAR_RDAC Switch" value="1" />
-        <ctl name="EAR PA Gain" value="G_6_DB" />
+        <ctl name="EAR PA GAIN" value="G_6_DB" />
         <ctl name="RX_EAR Mode" value="ON" />
     </path>
 
@@ -630,7 +637,7 @@
         <ctl name="RX INT0_2 MUX" value="RX2" />
         <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT" />
         <ctl name="EAR_RDAC Switch" value="1" />
-        <ctl name="EAR PA Gain" value="G_6_DB" />
+        <ctl name="EAR PA GAIN" value="G_6_DB" />
         <ctl name="RX_EAR Mode" value="ON" />
     </path>
 
@@ -700,9 +707,6 @@
     <path name="ultrasound-output-stereo">
     </path>
 
-    <path name="ultrasound-secondary-input">
-    </path>
-
     <path name="ultrasound-rampdown">
         <ctl name="Ultrasound RampDown" value="On" />
     </path>
@@ -719,8 +723,22 @@
         <!--  mixer controls for receiver/speaker stereo mode  -->
     </path>
 
-    <path name="ultrasound-input-secondary">
-        <!--  mixer controls for dedicated microphone  -->
+    <path name="ultrasound-secondary-input">
+        <ctl name="TX_CDC_DMA_TX_4 Channels" value="Two" />
+        <ctl name="TX_CDC_DMA_TX_4 SampleRate" value="KHZ_96" />
+
+        <ctl name="TX_AIF2_CAP Mixer DEC1" value="1" />
+        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX1" value="ADC3" />
+        <ctl name="ADC3_MIXER Switch" value="1" />
+
+        <ctl name="TX_AIF2_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX SMIC MUX0" value="ADC0"/>
+        <ctl name="ADC1_MIXER Switch" value="1" />
+
+        <ctl name="ADC1 Volume" value="8" />
+        <ctl name="ADC3 Volume" value="8" />
     </path>
 
     <path name="ultrasound-suspend">

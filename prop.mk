@@ -107,24 +107,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
-    ro.bluetooth.a2dp_offload.supported=true \
-    vendor.qcom.bluetooth.soc=cherokee \
+    persist.bluetooth.a2dp_offload.disabled=true \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
-    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
-    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac \
-    ro.vendor.bluetooth.wipower=false \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
+    vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.sat.fallback.dist=40 \
-    persist.camera.sat.fallback.dist.d=10 \
-    persist.camera.sat.fallback.luxindex=310 \
-    persist.camera.sat.fallback.lux.d=50 \
-    persist.vendor.camera.enableNCSService=TRUE \
-    persist.vendor.camera.enableTOFInterface=TRUE \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
+    camera.disable_zsl_mode=1 \
 
 # CNE/DPM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -182,12 +173,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
-# IMS - disable debug spam
+# IMS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ims.disableADBLogs=1 \
     persist.vendor.ims.disableDebugLogs=1 \
     persist.vendor.ims.disableIMSLogs=1 \
     persist.vendor.ims.disableQXDMLogs=1 \
+    persist.rcs.supported=0 \
     persist.radio.calls.on.ims=1
 
 # FM Radio/BT
@@ -197,6 +189,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_backpressure=1 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.enable_hwc_vds=1
 
 # GPS/GNSS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -209,13 +207,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-fma2dp=true \
-    media.stagefright.enable-http=true \
     media.stagefright.enable-player=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-aac=true \
     media.stagefright.enable-qcp=true \
+    media.stagefright.enable-fma2dp=true \
     media.stagefright.enable-scan=true \
+    mmp.enable.3g2=true \
+    media.aac_51_output_enabled=true \
+    mm.enable.smoothstreaming=true \
     persist.mm.enable.prefetch=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -245,7 +245,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.df.dev_name=rmnet_usb0 \
-    persist.vendor.data.iwlan.enable=true \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
@@ -272,10 +271,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     keyguard.no_require_sim=true \
-    persist.data.df.dev_name=rmnet_usb0 \
-    persist.radio.atfwd.start=false \
     persist.radio.multisim.config=dsds \
-    persist.vendor.data.mode=concurrent \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.data_con_rprt=1 \
@@ -285,29 +281,44 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.telephony.default_network=22,22 \
+    ro.telephony.default_cdma_sub \
     telephony.lteOnCdmaDevice=1 \
     ro.com.android.dataroaming=false \
+    persist.radio.NO_STAPA=1 \
     persist.radio.VT_CAM_INTERFACE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1
+    persist.radio.VT_HYBRID_ENABLE=1 \
+    ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999 \
+    persist.data.profile_update=true \
+    persist.vendor.radio.redir_party_num=1 \
+    persist.vendor.radio.force_on_dc=true \
+    persist.sys.strictmode.disable=true \
+    persist.radio.data_con_rprt=1 \
+    persist.radio.data_ltd_sys_ind=1\
+    persist.radio.dynamic_sar=true \
+    persist.radio.aosp_usr_pref_sel=true
+
+# Simulate sdcard on /data/media
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.fuse_sdcard=true
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
     ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.early_phase_offset_ns=1500000 \
     debug.sf.early_app_phase_offset_ns=1500000 \
-    debug.sf.early_gl_app_phase_offset_ns=15000000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
-    debug.sf.early_phase_offset_ns=1500000
+    debug.sf.early_gl_app_phase_offset_ns=15000000
 
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.timed.enable=true
+    persist.timed.enable=true \
+    persist.vendor.delta_time.enable=true
 
 # VoLTE
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -317,6 +328,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # WLAN
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.wlan.vendor=qcom \
     config.disable_rtt=true \
     persist.vendor.data.iwlan.enable=true \
-    ro.wlan.chip=39xx
+    ro.wlan.mimo=0 \
+    ro.wlan.chip=39xx \
+    ro.hardware.wlan.vendor=qcom \
+    ro.hardware.wlan.chip=39xx \
+    ro.hardware.wlan.mimo=1
+

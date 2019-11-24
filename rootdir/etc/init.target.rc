@@ -122,6 +122,12 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
+    #Set the default voltage to 5v
+    setprop persist.vendor.cp.taper_term_mv 5000
+    setprop persist.vendor.qg_cold_temp -150
+    setprop persist.vendor.qg_coff_gain 1
+    setprop persist.vendor.qg_cld_coff_gain 1.5
+
 # Add a cpuset for the camera daemon
 # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -206,18 +212,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-send-rule stream 0660 system system
    group root
 
-## imsqmidaemon starts with root and UID will be downgraded to RADIO.
-service vendor.imsqmidaemon /system/vendor/bin/imsqmidaemon
-    class main
-    user radio
-    socket ims_qmid stream 0660 system radio
-    group radio log diag
-
-service vendor.imsrcsservice /system/vendor/bin/imsrcsd
-    class main
-    user radio
-    group radio diag inet log
-
 on property:vold.decrypt=trigger_restart_framework
    start vendor.cnss_diag
 
@@ -226,14 +220,6 @@ service vendor.cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    user system
    group system wifi inet sdcard_rw media_rw diag
    oneshot
-
-service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
-   class main
-   user radio
-   group radio vendor_qti_diag inet log
-
-on property:vendor.ims.DATA_DAEMON_STATUS=1
-    restart vendor.ims_rtp_daemon
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
