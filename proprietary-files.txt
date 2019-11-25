@@ -1158,7 +1158,8 @@ product/framework/qcrilhook.jar
 vendor/bin/adpl
 vendor/bin/ATFWD-daemon
 vendor/bin/hw/qcrild
-vendor/bin/netmgrd
+#netmgrd from  TheMuppets/proprietary_vendor_oneplus/sm8150-common
+vendor/bin/netmgrd|51c43d49c8e20a1eca6a0dbf87038174f5117b8a
 vendor/bin/port-bridge
 vendor/bin/qrtr-cfg
 vendor/bin/qrtr-lookup

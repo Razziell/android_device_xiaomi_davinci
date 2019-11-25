@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017-2019 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -23,10 +23,6 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.core_core \
     androidx.preference_preference
 
-LOCAL_STATIC_JAVA_LIBRARIES := \
-    vendor.xiaomi.hardware.displayfeature-V1.0-java \
-    vendor.xiaomi.hardware.motor-V1.0-java
-
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res \
     $(TOP)/packages/resources/devicesettings/res
@@ -34,3 +30,5 @@ LOCAL_RESOURCE_DIR := \
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
