@@ -60,11 +60,10 @@ void load_davinciglobal() {
     property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
     property_override_dual("ro.product.device", "ro.product.vendor.device", "davinci");
-    property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V11.0.2.0.PFJEUXM release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci_eea/davinci:9/PKQ1.190302.001/V11.0.2.0.PFJEUXM:user/release-keys");
+    property_override("ro.build.description", "davinci-user 9 PKQ1.190302.001 V11.0.3.0.PFJEUXM release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci_eea/davinci:9/PKQ1.190302.001/V11.0.3.0.PFJEUXM:user/release-keys");
     property_override("ro.product.mod_device", "davinci_eea_global");
-//    property_override("ro.build.version.security_patch", "2019-09-01");
-//    property_override("ro.build.version.real_security_patch", "2019-09-05");
+    property_override("ro.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 }
 
