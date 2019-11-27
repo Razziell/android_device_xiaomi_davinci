@@ -610,8 +610,10 @@ vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libSecureUILib.so
 vendor/lib/libStDrvInt.so
+vendor/lib/libdrm.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
+vendor/lib/libdrmutils.so
 vendor/lib/libqisl.so
 vendor/lib/librmp.so
 vendor/lib/librpmb.so
@@ -623,8 +625,10 @@ vendor/lib64/libGPreqcancel_svc.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libSecureUILib.so
 vendor/lib64/libStDrvInt.so
+vendor/lib64/libdrm.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
+vendor/lib64/libdrmutils.so
 vendor/lib64/libqisl.so
 vendor/lib64/librmp.so
 vendor/lib64/librpmb.so
@@ -640,6 +644,7 @@ vendor/lib/libcpion.so
 vendor/lib/libhdcpsrm.so
 vendor/lib/liboemcrypto.so|ad286cf38f8b00a5c9b0b0f424e4a5bd1f47f046
 vendor/lib/libwvhidl.so|20eba2049f801dcec3a8161b1bf73a8c326d54c2
+vendor/lib/mediacas/libclearkeycasplugin.so
 vendor/lib/mediadrm/libdrmclearkeyplugin.so|756ef69e6cdb3bb0b9bcf5973b5816c471a4a80b
 vendor/lib/mediadrm/libwvdrmengine.so|caf5ab78d04fe5a2d2ec63f9babd85a985241c58
 vendor/lib64/libbase64.so
@@ -647,6 +652,7 @@ vendor/lib64/libcpion.so
 vendor/lib64/libhdcpsrm.so
 vendor/lib64/liboemcrypto.so|e44fa8bf9bed1541342390bf316c34fe9f29cc4e
 vendor/lib64/libwvhidl.so|c5539056eda835d42605f0d8b7ce63f1fd550759
+vendor/lib64/mediacas/libclearkeycasplugin.so
 vendor/lib64/mediadrm/libdrmclearkeyplugin.so|0289025f5a34f3c7e04d816b81ca21a2153c32f4
 vendor/lib64/mediadrm/libwvdrmengine.so|bbba8d2234fb829b675ba84d35b4acf82970cc8b
 
