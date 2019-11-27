@@ -830,8 +830,16 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     disabled
     oneshot
 
+service hack_attest /vendor/bin/hack_attest.sh
+    class late_start
+    user root
+    group shell
+    oneshot
+    disabled
+
 on property:sys.boot_completed=1
     start qcom-post-boot
+    start hack_attest
 
 on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
