@@ -1,1 +1,5 @@
-set_prop(rild, vendor_radio_prop)
+set_prop(rild, vendor_radio_prop) ;
+allow rild default_prop:file { getattr } ;
+allow rild default_prop:file { map } ;
+allow rild default_prop:file { open } ;
+allow rild default_prop:file { read } ;
