@@ -116,6 +116,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
     camera.disable_zsl_mode=1 \
+    vendor.camera.hal1.packagelist=com.whatsapp
 
 # CNE/DPM
 PRODUCT_PROPERTY_OVERRIDES += \
