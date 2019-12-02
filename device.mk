@@ -260,6 +260,7 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
+    hack_attest.sh \
     init.class_main.sh \
     init.msm.usb.configfs.rc \
     init.qcom.early_boot.sh \
