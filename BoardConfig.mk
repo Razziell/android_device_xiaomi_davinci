@@ -60,6 +60,9 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 # CNE and DPM
 BOARD_USES_QCNE := true
 
+# Crypto
+TARGET_HW_DISK_ENCRYPTION := true
+
 # Dex
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
