@@ -584,9 +584,6 @@ vendor/lib64/libdpmqmihal.so
 
 # DRM - from raphael-user 10 QKQ1.190825.002 11.0.3.0 release-keys
 vendor/bin/qseecomd|382b60d1a97325995048092550f7a86063b3f641
-# Nokia/Phoenix_00WW/PNX_sprout:10/QKQ1.190725.002/00WW_4_15B release-keys
-vendor/bin/seemp_healthd|63f1cfd038516214dab515492d91db7eb9f30b89
-#
 vendor/etc/init/qseecomd.rc|3e596c60490756388a5bd56378a91d0db7c3779b
 vendor/lib/libcppf.so|598b26e2fcfff9ca8636790bf74cefafb1163945
 vendor/lib/libGPreqcancel.so|41827597d177591e4a3881c38bccb186ebb5e4a8
@@ -598,11 +595,13 @@ vendor/lib/libdrm.so|797dd8d7fb847be18615e8b0e64709c1fef699aa
 vendor/lib/libdrmfs.so|d5cac31e06d91f45cd1a045f9dce289fd30a9e0b
 vendor/lib/libdrmtime.so|6df7cb6b410c3fe1920a54b91d833c696819f53e
 vendor/lib/libdrmutils.so|91052220ee6b1f3470a5c65968451adf9fc3bbdf
+vendor/lib/libops.so|55e9aa42bf08b2065ec062ef565e7c17aade5a7f
 vendor/lib/libqisl.so|7ab9610b5aabeaf07b218cc4830edbd0a0f12bd9
 vendor/lib/librmp.so|af58655c63f15f5e505db3f29a853243054471c3
 vendor/lib/librpmb.so|5e585f2ea1f1013484ee878fee9d2ed5021e7c48
 vendor/lib/libsecureui.so|da33dbfb3071e56d85d72272b8a95493c424ac3e
 vendor/lib/libsecureui_svcsock.so|1fb71b40f40bb2d68148d25e1a34ff03962b69bf
+vendor/lib/libspl.so|6b324e1265d08353aa3b9a5f140d7ee75d01ad73
 vendor/lib/libssd.so|2f4c539068dd1c3f176913d7a5dc509ddcc8962f
 vendor/lib/libtzdrmgenprov.so|ab2bed8c564f08e6e0968555c6a8d8821b529038
 vendor/lib64/libGPreqcancel.so|e097d1e6e7f15c74e2c8bdbee13b0cadb90c59f1
@@ -614,13 +613,18 @@ vendor/lib64/libdrm.so|4c676fdc4b506ca9b598bb51d6bf425220703b0a
 vendor/lib64/libdrmfs.so|802f1147a4b9429118ee51a19bb93dbd3f29c588
 vendor/lib64/libdrmtime.so|11bc422da8d37a3d932e6e9a215bb7e4a7051940
 vendor/lib64/libdrmutils.so|99d097e52e8e7edd3ede055a801772d16ea9abbb
+vendor/lib64/libops.so|f725fe53c004018de9e15502745337cd4a629960
 vendor/lib64/libqisl.so|f81d523e3e257e99bd055f6576521519a074e630
 vendor/lib64/librmp.so|d9e3b0ad3aea6609130bd8626f2ce2247744c2b2
 vendor/lib64/librpmb.so|d3defeebc3131ee94f51e6b516f2130751ff6eb0
 vendor/lib64/libsecureui.so|b5f8028ebab387560172c5908b94eebe262a2151
 vendor/lib64/libsecureui_svcsock.so|4b631facdb45be19ee92057ac3f711ea60fc1402
+vendor/lib64/libspl.so|933d83825894de0fb9f868437423c772c4c38f1c
 vendor/lib64/libssd.so|2ee777673c67a8b27cd0c6646689540b93c431ec
 vendor/lib64/libtzdrmgenprov.so|e6d809a9666701b1347d6500a0d84bf081a78567
+
+# DRM - Nokia/Phoenix_00WW/PNX_sprout:10/QKQ1.190725.002 00WW_4_15B release-keys
+vendor/bin/seemp_healthd|63f1cfd038516214dab515492d91db7eb9f30b89
 
 # DRM - Widevine - from raphael-user 10 QKQ1.190825.002 11.0.3.0 release-keys
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
