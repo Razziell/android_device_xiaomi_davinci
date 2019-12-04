@@ -582,9 +582,11 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 
-# DRM
+# DRM (with raphael)
 vendor/bin/qseecomd
+vendor/bin/seemp_healthd
 vendor/etc/init/qseecomd.rc
+vendor/lib/libcppf.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
 vendor/lib/libQSEEComAPI.so
@@ -618,25 +620,25 @@ vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 vendor/lib64/libtzdrmgenprov.so
 
-# DRM - Widevine (some blobs with raphael)
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|67f2fa979c23cf11fd48db5a79a424286838f139
+# DRM - Widevine (with raphael)
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib/libbase64.so
 vendor/lib/libcpion.so
 vendor/lib/libhdcpsrm.so
-vendor/lib/liboemcrypto.so|ad286cf38f8b00a5c9b0b0f424e4a5bd1f47f046
-vendor/lib/libwvhidl.so|20eba2049f801dcec3a8161b1bf73a8c326d54c2
+vendor/lib/liboemcrypto.so
+vendor/lib/libwvhidl.so
 vendor/lib/mediacas/libclearkeycasplugin.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so|756ef69e6cdb3bb0b9bcf5973b5816c471a4a80b
-vendor/lib/mediadrm/libwvdrmengine.so|caf5ab78d04fe5a2d2ec63f9babd85a985241c58
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib64/libbase64.so
 vendor/lib64/libcpion.so
 vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so|e44fa8bf9bed1541342390bf316c34fe9f29cc4e
-vendor/lib64/libwvhidl.so|c5539056eda835d42605f0d8b7ce63f1fd550759
+vendor/lib64/liboemcrypto.so
+vendor/lib64/libwvhidl.so
 vendor/lib64/mediacas/libclearkeycasplugin.so
-vendor/lib64/mediadrm/libdrmclearkeyplugin.so|0289025f5a34f3c7e04d816b81ca21a2153c32f4
-vendor/lib64/mediadrm/libwvdrmengine.so|bbba8d2234fb829b675ba84d35b4acf82970cc8b
+vendor/lib64/mediadrm/libdrmclearkeyplugin.so
+vendor/lib64/mediadrm/libwvdrmengine.so|b
 
 # ESE-Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
@@ -1457,3 +1459,48 @@ vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
 vendor/lib64/vendor.qti.hardware.wifi.wifilearner@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
 vendor/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
+
+# WiFi Display
+bin/wfdservice
+etc/init/wfdservice.rc
+etc/wfdconfig.xml
+etc/wfdconfigsink.xml
+-framework/WfdCommon.jar
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib64/extractors/libmmparser.so
+lib64/libFileMux.so
+lib64/libdisplayconfig.so
+lib64/libmmparser_lite.so
+lib64/libmmosal.so
+lib64/libqdMetaData.system.so
+lib64/libwfdclient.so
+lib64/libwfdnative.so
+lib/extractors/libmmparser.so
+lib/libFileMux.so
+lib/libdisplayconfig.so
+lib/libmmparser_lite.so
+lib/libmmosal.so
+lib/libmmrtpdecoder.so
+lib/libmmrtpencoder.so
+lib/libOmxMux.so
+lib/libqdMetaData.system.so
+lib/libwfdaac.so
+lib/libwfdavenhancements.so
+lib/libwfdcodecv4l2.so
+lib/libwfdcommonutils.so
+lib/libwfdconfigutils.so
+lib/libwfdclient.so
+lib/libwfdmminterface.so
+lib/libwfdmmservice.so
+lib/libwfdmmsink.so
+lib/libwfdmmsrc.so
+lib/libwfdnative.so
+lib/libwfdrtsp.so
+lib/libwfdservice.so
+lib/libwfdsm.so
+lib/libwfduibcinterface.so
+lib/libwfduibcsink.so
+lib/libwfduibcsinkinterface.so
+lib/libwfduibcsrc.so
+lib/libwfduibcsrcinterface.so
+-priv-app/WfdService/WfdService.apk
