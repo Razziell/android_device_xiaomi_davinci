@@ -1056,4 +1056,6 @@
     <string name="config_SmartChargingResumeValue" translatable="false">0</string>
         <!-- Show a custom view for FOD -->
     <bool name="config_needCustomFODView">true</bool>
+    <!-- Whether device ignores the RSSNR signal implementation -->
+    <bool name="config_ignoreRssnrSignalLevel">true</bool>
 </resources>
