@@ -1058,4 +1058,7 @@
     <bool name="config_needCustomFODView">true</bool>
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">true</bool>
+    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
+    Set to -1 to disable the proximity sensor check at all-->
+    <integer name="config_flashlightProximityTimeout">-1</integer>
 </resources>
