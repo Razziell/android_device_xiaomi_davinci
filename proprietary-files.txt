@@ -444,11 +444,8 @@ vendor/lib64/libmpbase.so
 vendor/lib64/libnanopb.so
 vendor/lib64/libremosaic_daemon.so
 vendor/lib64/libremosaiclib.so
-vendor/lib64/libsns_device_mode_stub.so
 vendor/lib64/libsns_fastRPC_util.so
-vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/libsnsapi.so
-vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libsysmon_cdsp_skel.so
@@ -652,6 +649,7 @@ vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|68767969f86126ada01
 vendor/lib/libcpion.so|923d3b2d486836f7c460ad2305a842c8867e9778
 vendor/lib/libhdcpsrm.so|a57ee04bf6072fd72c5ee3a36be9a8592f440e4f
 vendor/lib/liboemcrypto.so|7a8be0a1b2b6f7441c658dd1a1550510c8c154ee
+vendor/lib/libwvkeybox.so|7f1e74800021d6f885ee9162da57cbeee7612add
 vendor/lib/mediacas/libclearkeycasplugin.so|786b0ecc9a5ec8e68be5147457011c18e9373142
 vendor/lib/mediadrm/libdrmclearkeyplugin.so|ce6e571d20aee8601b1c36ddee80cd9e47e6a07f
 vendor/lib/mediadrm/libwvdrmengine.so|f3344005fadf811dfa74d1c9029e799278c2ec7b
@@ -659,6 +657,7 @@ vendor/lib64/libcpion.so|4042cc726f2afaf914023747d7089ec88c3da461
 vendor/lib64/libhdcpsrm.so|aff516016113358986a0a599701a721c73d657af
 vendor/lib64/liboemcrypto.so|b99e70b63bb2fa92fd5660382b6b16e1998968cc
 vendor/lib64/libwvhidl.so|f7c13ba3323b5b4363e013d4f2fd8c979b695c7c
+vendor/lib64/libwvkeybox.so|0b0cffef5783ba6b7476eeb8a0d82476cd19b1b4
 vendor/lib64/mediacas/libclearkeycasplugin.so|4aa4b7d8912316cf3a37232a9d724339d13cc582
 vendor/lib64/mediadrm/libdrmclearkeyplugin.so|0289025f5a34f3c7e04d816b81ca21a2153c32f4
 vendor/lib64/mediadrm/libwvdrmengine.so|4f78d73cfddc0b5bc9a5dcbb20470beaad0d3047
@@ -720,8 +719,8 @@ vendor/firmware/a630_sqe.fw
 vendor/firmware/a640_gmu.bin
 
 # FM
--/product/lib/vendor.qti.hardware.fm@1.0.so
--/product/lib64/vendor.qti.hardware.fm@1.0.so
+-product/lib/vendor.qti.hardware.fm@1.0.so
+-product/lib64/vendor.qti.hardware.fm@1.0.so
 lib/fm_helium.so
 lib/libfm-hci.so
 lib64/fm_helium.so
@@ -1365,19 +1364,34 @@ vendor/lib64/libscvePanorama.so
 vendor/lib64/libscvePanorama_lite.so
 
 # Sensors
+product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
 vendor/bin/sensors.qti
+vendor/bin/sscrpcd|3c3a1f50d5f28c3305f3510012fd55be2ac4bb00
 vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib/libsensorcal.so
 vendor/lib/libsensorslog.so
+vendor/lib/libsnsdiaglog.so
 vendor/lib/libssc.so
+vendor/lib/libssc_default_listener.so
+vendor/lib/libssccalapi.so
+vendor/lib/libsns_device_mode_stub.so
+vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/sensors.ssc.so
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
+vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
+vendor/lib64/libssc_default_listener.so
+vendor/lib64/libssccalapi.so
+vendor/lib64/libsns_device_mode_stub.so
+vendor/lib64/libsns_low_lat_stream_stub.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
