@@ -143,9 +143,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio@2.0-impl \
     audio.bluetooth.default \
-    liba2dpoffload \
     libldacBT_dec
 
 PRODUCT_COPY_FILES += \
