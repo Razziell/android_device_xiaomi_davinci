@@ -107,11 +107,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.qcom.bluetooth.enable.splita2dp=false \
+    persist.vendor.bt.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
-    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
-    ro.vendor.bluetooth.wipower=false \
-    vendor.qcom.bluetooth.soc=cherokee
+    vendor.qcom.bluetooth.soc=cherokee \
+    persist.bluetooth.bluetooth_audio_hal.disabled=false
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -187,11 +187,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # FM Radio/BT
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.bluetooth.soc=cherokee \
-    persist.vendor.btstack.enable.splita2dp=true \
-    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
     bt.max.hfpclient.connections=1 \
-    ro.bluetooth.wipower=false \
-    persist.bt.a2dp.aac_disable=true
+    ro.bluetooth.wipower=false
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
