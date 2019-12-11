@@ -128,11 +128,6 @@ on boot
     setprop persist.vendor.qg_coff_gain 1
     setprop persist.vendor.qg_cld_coff_gain 1.5
 
-service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
-    class hal
-    user system
-    group system
-
 # Add a cpuset for the camera daemon
 # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
@@ -152,9 +147,6 @@ service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
     chown system system /sys/class/leds/white/brightness
     chown system system /sys/class/leds/white/breath
 
-#Load WLAN driver
-    insmod /vendor/lib/modules/qca_cld3_wlan.ko
-
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"
@@ -166,6 +158,12 @@ service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
 # access permissions for FPC service
     chown system system /sys/bus/platform/devices/soc/soc:fpc1020/irq
     chown system system /sys/bus/platform/devices/soc/soc:fpc1020/wakeup_enable
+
+# xiaomi motor
+service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+    class hal
+    user system
+    group system
 
 #pd-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
