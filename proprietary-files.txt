@@ -1016,6 +1016,16 @@ vendor/lib64/libmlipay.so
 vendor/lib64/vendor.xiaomi.hardware.mlipay@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.mlipay@1.1.so
 
+# Motor
+vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+vendor/etc/step_motor/mi_camera_config.xml
+vendor/lib/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib/libmivendor_module_motor.so
+vendor/lib/mi.motor.daemon.so
+vendor/lib64/hw/vendor.xiaomi.hardware.motor@1.0-impl.so
+vendor/lib64/libmivendor_module_motor.so
+vendor/lib64/mi.motor.daemon.so
+
 # Neural-networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.2-service-qti
 vendor/etc/init/android.hardware.neuralnetworks@1.2-service-qti.rc
@@ -1072,6 +1082,20 @@ vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
+
+# Popup camera sound effects
+media/audio/ui/popup_cangmen_down.ogg
+media/audio/ui/popup_cangmen_up.ogg
+media/audio/ui/popup_chilun_down.ogg
+media/audio/ui/popup_chilun_up.ogg
+media/audio/ui/popup_jijia_down.ogg
+media/audio/ui/popup_jijia_up.ogg
+media/audio/ui/popup_mofa_down.ogg
+media/audio/ui/popup_mofa_up.ogg
+media/audio/ui/popup_muqin_down.ogg
+media/audio/ui/popup_muqin_up.ogg
+media/audio/ui/popup_yingyan_down.ogg
+media/audio/ui/popup_yingyan_up.ogg
 
 # Postprocessing - from davinci-user 10 QKQ1.190825.002 9.10.9 release-keys
 product/lib/libsdm-disp-apis.qti.so|aba03914525aef05bae629fec4c166b4a2ca17de
