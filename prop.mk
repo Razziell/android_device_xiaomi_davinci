@@ -58,8 +58,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # AudioFlinger client heap size
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.af.client_heap_size_kbyte=7168
-    
+    audio.deep_buffer.media=true \
+    ro.af.client_heap_size_kbyte=7168 \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=7
+
 # Audio vendor feature
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.a2dp_offload.enable=true \
@@ -215,6 +218,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+    audio.offload.video=true \
     media.stagefright.enable-player=true \
     media.stagefright.enable-http=true \
     media.stagefright.enable-aac=true \
