@@ -152,7 +152,7 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.display.config</name>
-        <version>1.0-10</version>
+        <version>1.0-11</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
