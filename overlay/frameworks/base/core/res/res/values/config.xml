@@ -1034,29 +1034,10 @@
     <!-- Regex of wired ethernet ifaces -->
     <string translatable="false" name="config_ethernet_iface_regex">eth0</string>
 
-    <!-- Keycodes of gestures. If the gesture is not supported set it to 0. -->
-    <integer name="config_doubleTapKeyCode">143</integer>
-
-    <!-- Default settings for gestures
-            0 - Disabled
-            1 - Wake device
-            2 - Toggle flashlight
-            3 - Toggle airplane mode
-            4 - Play/Pause music
-            5 - Next music
-            6 - Previous music
-            7 - Open camera
-            8 - Open dialer -->
-    <integer name="config_doubleTapDefault">1</integer>
-
     <!-- Whether to intercept inputs on screen off. -->
     <bool name="config_enableKeyHandler">true</bool>
     <!-- Boolean indicating if current platform supports HFP inband ringing -->
     <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
-        <!-- Smart charge sysfs node and value for suspend/resume charging-->
-    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
-    <string name="config_SmartChargingSupspendValue" translatable="false">1</string>
-    <string name="config_SmartChargingResumeValue" translatable="false">0</string>
         <!-- Show a custom view for FOD -->
     <bool name="config_needCustomFODView">true</bool>
     <!-- Whether device ignores the RSSNR signal implementation -->
