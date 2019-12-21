@@ -60,7 +60,7 @@
     <!-- Popup camera settings -->
     <string name="popup_led_title">Визуальные эффекты</string>
     <string name="popup_led_summary">Показывать анимацию, когда камера выдвигается и убирается</string>
-    <string name="popup_title">Звуковые эффекты</string>
+    <string name="popup_title">Эффекты передней камеры</string>
     <string name="popup_title_muqin">Xylophone</string>
     <string name="popup_title_yingyan">Condor</string>
     <string name="popup_title_mofa">Magic</string>

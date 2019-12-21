@@ -46,7 +46,7 @@ import android.widget.Button;
 
 import java.util.List;
 
-import com.android.internal.util.custom.FileUtils;
+import org.lineageos.internal.util.FileUtils;
 
 import org.lineageos.settings.R;
 import org.lineageos.settings.utils.LimitSizeList;
@@ -113,7 +113,7 @@ public class PopupCameraService extends Service {
 
     @Override
     public void onCreate() {
-        mSensorManager = getSystemService(SensorManager.class);
+        mSensorManager = this.getSystemService(SensorManager.class);
         mFreeFallSensor = mSensorManager.getDefaultSensor(FREE_FALL_SENSOR_ID);
         mProximitySensor = new ProximitySensor(this, mSensorManager, mProximityListener);
         mPopupRecordList = new LimitSizeList<>(FREQUENT_TRIGGER_COUNT);
@@ -263,7 +263,7 @@ public class PopupCameraService extends Service {
     public void onDestroy() {
         if (DEBUG) Log.d(TAG, "Destroying service");
         setProximitySensor(false);
-        unregisterReceiver(mIntentReceiver);
+        this.unregisterReceiver(mIntentReceiver);
         super.onDestroy();
     }
 
@@ -275,7 +275,7 @@ public class PopupCameraService extends Service {
     private void registerReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
-        filter.addAction(Intent.ACTION_CAMERA_STATUS_CHANGED);
+        filter.addAction("lineageos.intent.action.CAMERA_STATUS_CHANGED");
         registerReceiver(mIntentReceiver, filter);
     }
 
@@ -283,8 +283,8 @@ public class PopupCameraService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
-               mCameraState = intent.getExtras().getString(Intent.EXTRA_CAMERA_STATE);
+            if (lineageos.content.Intent.ACTION_CAMERA_STATUS_CHANGED.equals(action)) {
+               mCameraState = intent.getExtras().getString(lineageos.content.Intent.EXTRA_CAMERA_STATE);
                updateMotor();
             } else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                 if (mCameraState.equals(openCameraState)){
