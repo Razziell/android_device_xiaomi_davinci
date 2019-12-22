@@ -197,6 +197,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rcs.supported=0 \
     persist.radio.calls.on.ims=1
 
+# Enforce privapp-permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=disable
+
 # FM Radio/BT
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     vendor.bluetooth.soc=cherokee \
