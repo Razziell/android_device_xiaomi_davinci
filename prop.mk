@@ -110,9 +110,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    net.bt.name=Android \
-    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
-    persist.vendor.btstack.enable.splita2dp=true \
     vendor.qcom.bluetooth.soc=cherokee \
     persist.vendor.qcom.bluetooth.enable.splita2dp=true \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
@@ -144,16 +141,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=1 \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0
-
-
-# Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=8m \
-    dalvik.vm.heapmaxfree=8m \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapsize=512m \
-    dalvik.vm.heaptargetutilization=0.75 \
-    ro.dalvik.vm.native.bridge=0
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -200,11 +187,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.control_privapp_permissions=disable
-
-# FM Radio/BT
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    vendor.bluetooth.soc=cherokee \
-    ro.bluetooth.wipower=false
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -258,10 +240,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_1="" \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3=""
-
-# Netflix
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q6150-17263-1
 
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
