@@ -16,6 +16,19 @@
 */
 -->
 <resources>
-    <dimen name="rounded_corner_content_padding">12dp</dimen>
-    <dimen name="system_icons_keyguard_padding_end">4dp</dimen>
+    <dimen name="rounded_corner_content_padding">36px</dimen>
+    <!-- Radius of the software rounded corners at the top of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_top">100px</dimen>
+
+    <!-- Radius of the software rounded corners at the bottom of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_bottom">110px</dimen>
+    <dimen name="status_bar_content_number_size">48.0sp</dimen>
+    <dimen name="system_bar_height">144px</dimen>
+    <dimen name="status_bar_height_portrait">74px</dimen>
+    <dimen name="status_bar_height_landscape">74px</dimen>
+    <dimen name="system_icons_keyguard_padding_end">12px</dimen>
+    <dimen name="navigation_side_padding">85.0dip</dimen>
+    <dimen name="recents_task_view_rounded_corners_radius">9.0dip</dimen>
 </resources>
