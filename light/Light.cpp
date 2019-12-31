@@ -112,28 +112,40 @@ static void handleNotification(const LightState& state) {
     uint32_t blueBrightness = getScaledBrightness(state, getMaxBrightness(BLUE_LED MAX_BRIGHTNESS));
     uint32_t greenBrightness = getScaledBrightness(state, getMaxBrightness(GREEN_LED MAX_BRIGHTNESS));
 
-    /* Disable breathing */
+    /* Disable breathing or blinking */
     set(WHITE_LED BREATH, 0);
+    set(WHITE_LED DELAY_OFF, 0);
+    set(WHITE_LED DELAY_ON, 0);
+
     set(BLUE_LED BREATH, 0);
+    set(BLUE_LED DELAY_OFF, 0);
+    set(BLUE_LED DELAY_ON, 0);
+
     set(GREEN_LED BREATH, 0);
+    set(GREEN_LED DELAY_OFF, 0);
+    set(GREEN_LED DELAY_ON, 0);
 
-    if (state.flashMode == Flash::TIMED) {
-        /* White, Blue and GREEN */
-        set(WHITE_LED DELAY_OFF, state.flashOnMs);
-        set(WHITE_LED DELAY_ON, state.flashOffMs);
-        set(BLUE_LED DELAY_OFF, state.flashOnMs);
-	set(BLUE_LED DELAY_ON, state.flashOffMs);
-        set(GREEN_LED DELAY_OFF, state.flashOnMs);
-	set(GREEN_LED DELAY_ON, state.flashOffMs);
-
-        /* Enable Breathing */
-        set(WHITE_LED BREATH, 1);
-        set(BLUE_LED BREATH, 1);
-        set(BLUE_LED BREATH, 1);
-    } else {
-        set(WHITE_LED BRIGHTNESS, whiteBrightness);
-        set(BLUE_LED BRIGHTNESS, blueBrightness);
-        set(GREEN_LED BRIGHTNESS, greenBrightness);
+    switch (state.flashMode) {
+        case Flash::HARDWARE:
+            /* Breathing */  
+            set(WHITE_LED BREATH, 1);
+            set(BLUE_LED BREATH, 1);
+            set(GREEN_LED BREATH, 1);
+            break;
+        case Flash::TIMED:
+            /* Blinking */
+            set(WHITE_LED DELAY_OFF, state.flashOnMs);
+            set(WHITE_LED DELAY_ON, state.flashOffMs);
+            set(BLUE_LED DELAY_OFF, state.flashOnMs);
+            set(BLUE_LED DELAY_ON, state.flashOffMs);
+            set(GREEN_LED DELAY_OFF, state.flashOnMs);
+            set(GREEN_LED DELAY_ON, state.flashOffMs);
+            break;
+        case Flash::NONE:
+        default:
+            set(WHITE_LED BRIGHTNESS, whiteBrightness);
+            set(BLUE_LED BRIGHTNESS, blueBrightness);
+            set(GREEN_LED BRIGHTNESS, greenBrightness);
     }
 }
 
@@ -158,8 +170,7 @@ namespace V2_0 {
 namespace implementation {
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
-    LightStateHandler handler;
-    bool handled = false;
+    LightStateHandler handler = nullptr;
 
     /* Lock global mutex until light state is updated. */
     std::lock_guard<std::mutex> lock(globalLock);
@@ -181,15 +192,12 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     for (LightBackend& backend : backends) {
         if (handler == backend.handler && isLit(backend.state)) {
             handler(backend.state);
-            handled = true;
-            break;
+            return Status::SUCCESS;
         }
     }
 
     /* If no type has been lit up, then turn off the hardware. */
-    if (!handled) {
-        handler(state);
-    }
+    handler(state);
 
     return Status::SUCCESS;
 }
