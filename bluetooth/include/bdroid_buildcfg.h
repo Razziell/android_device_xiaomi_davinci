@@ -23,7 +23,11 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME "Mi 9T"
+#include <cutils/properties.h>
+#include <string.h>
+
+#include "osi/include/osi.h"
+
 // Disables read remote device feature
 #define BTM_WBS_INCLUDED   TRUE
 #define BTIF_HF_WBS_PREFERRED   TRUE
