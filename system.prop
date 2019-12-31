@@ -6,6 +6,9 @@ vendor.qcom.bluetooth.soc=cherokee
 # Netflix
 ro.netflix.bsp_rev=Q6150-17263-1
 
+# NFC
+ro.nfc.port=I2C
+
 # Time
 persist.timed.enale=true
 

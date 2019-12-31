@@ -214,10 +214,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
     vendor.mm.enable.qcom_parser=63963135
 
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.nfc_nci=nqx.default
-    
 # Nitz
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_plmn="" \

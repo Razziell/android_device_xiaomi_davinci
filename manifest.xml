@@ -112,6 +112,8 @@
         </interface>
         <fqname>@1.0::ICryptoFactory/default</fqname>
         <fqname>@1.0::IDrmFactory/default</fqname>
+        <fqname>@1.1::ICryptoFactory/wfdhdcp</fqname>
+        <fqname>@1.1::IDrmFactory/wfdhdcp</fqname>
         <fqname>@1.2::ICryptoFactory/clearkey</fqname>
         <fqname>@1.2::ICryptoFactory/widevine</fqname>
         <fqname>@1.2::IDrmFactory/clearkey</fqname>
@@ -249,16 +251,6 @@
         <fqname>@1.2::IDevice/qti-dsp</fqname>
         <fqname>@1.2::IDevice/qti-gpu</fqname>
         <fqname>@1.2::IDevice/qti-hta</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>INfc</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.2::INfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.power</name>
@@ -479,14 +471,13 @@
         <fqname>@2.1::IGoodixFingerprintDaemon/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.nxp.hardware.nfc</name>
+        <name>android.hardware.nfc</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.2</version>
         <interface>
-            <name>INqNfc</name>
+            <name>INfc</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.1::INqNfc/default</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
