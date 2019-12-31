@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2019 The LineageOS Project
+// Copyright (C) 2017-2018 The LineageOS Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,23 +14,21 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci",
     relative_install_path: "hw",
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.xml"],
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.rc"],
     defaults: ["hidl_defaults"],
-    srcs: ["service.cpp", "FingerprintInscreen.cpp"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci.rc"],
+    srcs: ["service.cpp", "BiometricsFingerprint.cpp"],
     shared_libs: [
         "libbase",
         "libhardware",
         "libhidlbase",
         "libhidltransport",
-        "liblog",
         "libhwbinder",
+        "liblog",
         "libutils",
-        "vendor.goodix.hardware.biometrics.fingerprint@2.1",
-        "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
-        "vendor.xiaomi.hardware.fingerprintextension@1.0",
+        "libcutils",
+        "android.hardware.biometrics.fingerprint@2.1",
     ],
     proprietary: true,
 }
