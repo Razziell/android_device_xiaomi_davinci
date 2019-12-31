@@ -28,6 +28,7 @@
 
 #include "osi/include/osi.h"
 
+#define BTM_DEF_LOCAL_NAME "Mi 9T"
 // Disables read remote device feature
 #define BTM_WBS_INCLUDED   TRUE
 #define BTIF_HF_WBS_PREFERRED   TRUE
