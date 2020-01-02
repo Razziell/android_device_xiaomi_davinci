@@ -341,7 +341,6 @@ vendor/lib64/libarcsoft_low_light_hdr.so|2947bf039013267695c33ce164a4cfffa9b0b90
 vendor/lib64/libarcsoft_portrait_lighting.so|6977c2297750a91b20db8d3586bf2ea40693cb22
 vendor/lib64/libarcsoft_portrait_lighting_c.so|20c601998cc5c847910c14e66f74f2bc0d4308ad
 vendor/lib64/libarcsoft_supernight.so|2e591c76cc7a18561a06b1d8b98f3fa68b1ea4e3
-vendor/lib64/libbase64.so|f7f20f4c0708d89f1d86703d73b1518981dd2343
 vendor/lib64/libc++_shared.so|b03bfd1f2be6d63f4a73e08e87849036ae19af49
 vendor/lib64/libcamera_nn_stub.so|d908731673389ec6d4574b81dadc8a26cf2b921f
 vendor/lib64/libcamera_scene.so|4356edd0e679d4676dc301172cc55a984e76a578
@@ -521,68 +520,44 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 
-# DRM - from raphael-user 10 QKQ1.190825.002 11.0.3.0 release-keys
-vendor/bin/qseecomd|382b60d1a97325995048092550f7a86063b3f641
-vendor/etc/init/qseecomd.rc|3e596c60490756388a5bd56378a91d0db7c3779b
-vendor/lib/libcppf.so|598b26e2fcfff9ca8636790bf74cefafb1163945
-vendor/lib/libGPreqcancel.so|41827597d177591e4a3881c38bccb186ebb5e4a8
-vendor/lib/libGPreqcancel_svc.so|619447f881c1b523dba0a16f2976c72f7413417d
-vendor/lib/libQSEEComAPI.so|4c49c6d36a27809cc426e7b38537034a7f968170
-vendor/lib/libSecureUILib.so|bfc255eddec32bf8ba9adc736b87dcdc9c0123d6
-vendor/lib/libStDrvInt.so|d8633c902955af23245f70fbb8780f3416dfa789
-vendor/lib/libdrm.so|797dd8d7fb847be18615e8b0e64709c1fef699aa
-vendor/lib/libdrmfs.so|d5cac31e06d91f45cd1a045f9dce289fd30a9e0b
-vendor/lib/libdrmtime.so|6df7cb6b410c3fe1920a54b91d833c696819f53e
-vendor/lib/libdrmutils.so|91052220ee6b1f3470a5c65968451adf9fc3bbdf
-vendor/lib/libops.so|55e9aa42bf08b2065ec062ef565e7c17aade5a7f
-vendor/lib/libqisl.so|7ab9610b5aabeaf07b218cc4830edbd0a0f12bd9
-vendor/lib/librmp.so|af58655c63f15f5e505db3f29a853243054471c3
-vendor/lib/librpmb.so|5e585f2ea1f1013484ee878fee9d2ed5021e7c48
-vendor/lib/libsecureui.so|da33dbfb3071e56d85d72272b8a95493c424ac3e
-vendor/lib/libsecureui_svcsock.so|1fb71b40f40bb2d68148d25e1a34ff03962b69bf
-vendor/lib/libspl.so|6b324e1265d08353aa3b9a5f140d7ee75d01ad73
-vendor/lib/libssd.so|2f4c539068dd1c3f176913d7a5dc509ddcc8962f
-vendor/lib/libtzdrmgenprov.so|ab2bed8c564f08e6e0968555c6a8d8821b529038
-vendor/lib64/libGPreqcancel.so|e097d1e6e7f15c74e2c8bdbee13b0cadb90c59f1
-vendor/lib64/libGPreqcancel_svc.so|72a4b3bc33bd5a59546d3a156d934391d1306067
-vendor/lib64/libQSEEComAPI.so|4506aac1f064aa20e7c15f7b94a0bcb3378e4e0d
-vendor/lib64/libSecureUILib.so|87c06ed7884969a2fc5c5e01140bfa5474414136
-vendor/lib64/libStDrvInt.so|a7bd8140e2cd5aa70a7d929e01233e5b71844cd8
-vendor/lib64/libdrm.so|4c676fdc4b506ca9b598bb51d6bf425220703b0a
-vendor/lib64/libdrmfs.so|802f1147a4b9429118ee51a19bb93dbd3f29c588
-vendor/lib64/libdrmtime.so|11bc422da8d37a3d932e6e9a215bb7e4a7051940
-vendor/lib64/libdrmutils.so|99d097e52e8e7edd3ede055a801772d16ea9abbb
+# DRM - from LA.UM.8.9.r1-05500-SM6xx.0
+vendor/bin/qseecomd|48cd3ed4ecc9989a6d269f88d68b28aad7d1cd8d
+vendor/etc/gpfspath_oem_config.xml
+vendor/etc/init/qseecomd.rc|9c3b9c649e2bb8959b14d0e1278a390ddb15dc5e
+vendor/lib64/libdrmfs.so|ec1101eb8a2d49b6f9ae99bf08eff1f05d8b10e6
+vendor/lib64/libdrmtime.so|46ed3e5f81d2fdfa35cb7494c88655f484fecef9
+vendor/lib64/libGPreqcancel.so|bfff7b7d51e917a16b9a15a27fb81e16d0359348
+vendor/lib64/libGPreqcancel_svc.so|68f52c5e02974ba794221a71e39bb3f49cf0ad0b
 vendor/lib64/libops.so|f725fe53c004018de9e15502745337cd4a629960
-vendor/lib64/libqisl.so|f81d523e3e257e99bd055f6576521519a074e630
-vendor/lib64/librmp.so|d9e3b0ad3aea6609130bd8626f2ce2247744c2b2
-vendor/lib64/librpmb.so|d3defeebc3131ee94f51e6b516f2130751ff6eb0
-vendor/lib64/libsecureui.so|b5f8028ebab387560172c5908b94eebe262a2151
-vendor/lib64/libsecureui_svcsock.so|4b631facdb45be19ee92057ac3f711ea60fc1402
+vendor/lib64/libqisl.so|c4e7f283f3d416b784f2ec0f7000d607e044809b
+vendor/lib64/libQSEEComAPI.so|614e79e6ca4e1f897f522d692e0a323bcd1caa47
+vendor/lib64/librpmb.so|1dba12944d493795093b6ecdee1e56a6cccdfb6f
+vendor/lib64/libSecureUILib.so|488c77f86e217bff612d526e6557dbacd0ac2d47
+vendor/lib64/libsecureui.so|0836da4610689eba7707b78477bcb3e83f03d9ca
+vendor/lib64/libsecureui_svcsock.so|63eea241465a27aae4944a03b2b3a06dd9df13b2
+vendor/lib64/libsi.so|3855a8f4f5e117fadb282d5ff6fef76c7140aaf5
 vendor/lib64/libspl.so|933d83825894de0fb9f868437423c772c4c38f1c
-vendor/lib64/libssd.so|2ee777673c67a8b27cd0c6646689540b93c431ec
-vendor/lib64/libtzdrmgenprov.so|e6d809a9666701b1347d6500a0d84bf081a78567
+vendor/lib64/libssd.so|6bd9608adb484f5362beecd12b5c71d3132d2ca7
+vendor/lib64/libStDrvInt.so|8de13b46e8f21016c0fffaec34b0a2bacfccec04
+vendor/lib/libcpion.so|7e22c35f405adb94a2f1fe33e8968745c7dc06d7
+vendor/lib/libdrmfs.so|2d8573a3ff6bf52145cff4c7b368077d7b6f52e4
+vendor/lib/libQSEEComAPI.so|1a80d066ec4944fd786a1ade181f8e9adc2cfc4a
 
-# DRM - Nokia/Phoenix_00WW/PNX_sprout:10/QKQ1.190725.002 00WW_4_15B release-keys
-vendor/bin/seemp_healthd|63f1cfd038516214dab515492d91db7eb9f30b89
-
-# DRM - Widevine - from raphael-user 10 QKQ1.190825.002 11.0.3.0 release-keys
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|68767969f86126ada017fc09af151e299db651d5
-vendor/lib/libcpion.so|923d3b2d486836f7c460ad2305a842c8867e9778
-vendor/lib/libhdcpsrm.so|a57ee04bf6072fd72c5ee3a36be9a8592f440e4f
-vendor/lib/liboemcrypto.so|7a8be0a1b2b6f7441c658dd1a1550510c8c154ee
-vendor/lib/libwvkeybox.so|7f1e74800021d6f885ee9162da57cbeee7612add
-vendor/lib/mediacas/libclearkeycasplugin.so|786b0ecc9a5ec8e68be5147457011c18e9373142
-vendor/lib/mediadrm/libdrmclearkeyplugin.so|ce6e571d20aee8601b1c36ddee80cd9e47e6a07f
-vendor/lib/mediadrm/libwvdrmengine.so|f3344005fadf811dfa74d1c9029e799278c2ec7b
-vendor/lib64/libcpion.so|4042cc726f2afaf914023747d7089ec88c3da461
-vendor/lib64/libhdcpsrm.so|aff516016113358986a0a599701a721c73d657af
-vendor/lib64/liboemcrypto.so|b99e70b63bb2fa92fd5660382b6b16e1998968cc
-vendor/lib64/libwvhidl.so|f7c13ba3323b5b4363e013d4f2fd8c979b695c7c
-vendor/lib64/libwvkeybox.so|0b0cffef5783ba6b7476eeb8a0d82476cd19b1b4
-vendor/lib64/mediacas/libclearkeycasplugin.so|4aa4b7d8912316cf3a37232a9d724339d13cc582
-vendor/lib64/mediadrm/libdrmclearkeyplugin.so|0289025f5a34f3c7e04d816b81ca21a2153c32f4
-vendor/lib64/mediadrm/libwvdrmengine.so|4f78d73cfddc0b5bc9a5dcbb20470beaad0d3047
+# DRM - Widevine - from LA.UM.8.9.r1-05500-SM6xx.0
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
+vendor/lib64/libbase64.so|d401c8afa0cf35e20149943abf94717b79e93e32
+vendor/lib64/libcpion.so|7cf2784d31f93fb087b747ad8f27746b906154f2
+vendor/lib64/liboemcrypto.so|252479cc9952ffdb3fe77e044b7a6cc91e48e488
+vendor/lib64/librmp.so|f952b2ab9dab2f412f7f014a90089d529e784f3b
+vendor/lib64/mediadrm/libwvdrmengine.so
+vendor/lib/libbase64.so|90345ddebb0517e1b2ebbd43b938a318f13bc40a
+vendor/lib/libcppf.so|f7030a408959bff1f11499230b6d357cf570c7b5
+vendor/lib/libdrmfs.so|2d8573a3ff6bf52145cff4c7b368077d7b6f52e4
+vendor/lib/liboemcrypto.so|6f12eff0ea54c8d3dcbbe90396e2494528706cf1
+vendor/lib/librmp.so|5a78255271ec2d83bd906b12e5168b653514b4c9
+vendor/lib/libwvhidl.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 # ESE-Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
