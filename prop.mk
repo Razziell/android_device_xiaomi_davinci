@@ -118,13 +118,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     vendor.camera.hal1.packagelist=com.whatsapp
 
-# CNE/DPM
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.cne.feature=1 \
-    persist.vendor.dpm.feature=1 \
-    persist.vendor.dpm.loglevel=0 \
-    persist.vendor.dpm.nsrm.bkg.evt=3955
-
 # Ccodec
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.ccodec=1 \
@@ -228,7 +221,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netmgr
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.df.dev_name=rmnet_usb0 \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
