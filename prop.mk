@@ -237,14 +237,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.location.osnlp.package=com.google.android.gms \
     ro.location.osnlp.region.package=""
 
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.se.type=eSE,HCE,UICC
+
 # Perf Stack
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    vendor.perf.dolphin.enable=false \
-    ro.vendor.qti.config.zram=true \
-    vendor.iop.enable_prefetch_ofr=0 \
-    vendor.perf.gestureflingboost.enable=true \
-    vendor.perf.workloadclassifier.enable=true
+    ro.vendor.qti.config.zram=true
+
+# Power
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.power.pasr.enabled=true
 
 # Qualcomm / OEM Unlock
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -263,7 +266,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.enable_temp_dds=true \
     ril.subscription.types=NV,RUIM \
-    rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ro.telephony.default_network=22,22 \
     ro.telephony.default_cdma_sub \
     telephony.lteOnCdmaDevice=1 \
