@@ -25,8 +25,7 @@
 #define FINGERPRINT_ERROR_VENDOR 8
 
 #define COMMAND_NIT 10
-#define PARAM_NIT_630_FOD 1
-#define PARAM_NIT_300_FOD 4
+#define PARAM_NIT_FOD 3
 #define PARAM_NIT_NONE 0
 
 #define FOD_HBM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm"
@@ -95,13 +94,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 
 Return<void> FingerprintInscreen::onPress() {
     set(FOD_HBM_PATH, FOD_HBM_ON);
-
-    if (get(BRIGHTNESS_PATH, 0) > 100) {
-        xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_300_FOD);
-    } else if (get(BRIGHTNESS_PATH, 0) != 0) {
-        xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
-    }
-
+    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
     return Void();
 }
 
