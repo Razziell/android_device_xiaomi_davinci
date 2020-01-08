@@ -738,8 +738,8 @@ vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
 # Graphics (SDM)
--vendor/lib/libsdm-disp-vndapis.so
--vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib/libsdm-disp-vndapis.so
+vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib/libdpps.so
 vendor/lib/libqseed3.so
 vendor/lib/libsdedrm.so
