@@ -169,7 +169,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.control_privapp_permissions=disable
+    ro.control_privapp_permissions=log
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
