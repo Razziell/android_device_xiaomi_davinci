@@ -270,7 +270,6 @@ on property:vendor.audio.cit.spkcal.copy=true
 
 service audioshell_service /vendor/bin/audioshell_service
     oneshot
-    disabled
 
 service remosaic_daemon /system/vendor/bin/remosaic_daemon
    class late_start

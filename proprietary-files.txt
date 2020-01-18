@@ -108,6 +108,7 @@ vendor/lib64/libqtigef.so
 vendor/lib64/soundfx/libasphere.so
 
 # Audio - hardware
+vendor/bin/audioshell_service
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libaudioroute_ext.so

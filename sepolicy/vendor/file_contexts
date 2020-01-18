@@ -1,5 +1,10 @@
 # Audio
 /persist/audio(/.*)?													u:object_r:persist_audio_file:s0
+/dev/tfa_rw														u:object_r:sound_device:s0
+/dev/tfa_rpc														u:object_r:sound_device:s0
+/dev/tfa_reg														u:object_r:sound_device:s0
+/dev/tfa_control													u:object_r:sound_device:s0
+/vendor/bin/audioshell_service												u:object_r:audioshell_service_exec:s0
 
 # Data files
 /data/vendor/thermal(/.*)?												u:object_r:thermal_data_file:s0
