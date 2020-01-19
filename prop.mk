@@ -15,7 +15,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.chk.cal.us=0 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
-    ro.config.vc_call_vol_steps=11 \
     ro.vendor.audio.game.effect=true \
     ro.vendor.audio.hifi=true \
     ro.vendor.audio.sdk.fluencetype=fluence \
@@ -59,9 +58,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # AudioFlinger client heap size
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.deep_buffer.media=true \
-    ro.af.client_heap_size_kbyte=7168 \
-    ro.config.media_vol_steps=25 \
-    ro.config.vc_call_vol_steps=7
+    ro.af.client_heap_size_kbyte=7168
 
 # Audio vendor feature
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -111,12 +108,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
  # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bt.aac_frm_ctl.enabled=true
-
-# Camera
-PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
-    camera.disable_zsl_mode=1 \
-    vendor.camera.hal1.packagelist=com.whatsapp
 
 # Ccodec
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -196,20 +187,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.video=true \
-    media.stagefright.enable-player=true \
-    media.stagefright.enable-http=true \
-    media.stagefright.enable-aac=true \
-    media.stagefright.enable-qcp=true \
-    media.stagefright.enable-fma2dp=true \
-    media.stagefright.enable-scan=true \
-    mmp.enable.3g2=true \
-    media.aac_51_output_enabled=true \
-    mm.enable.smoothstreaming=true \
-    persist.mm.enable.prefetch=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.thumbnail.prefer_hw_codecs=true \
-    vendor.mm.enable.qcom_parser=63963135
+    media.stagefright.thumbnail.prefer_hw_codecs=true
 
 # Nitz
 PRODUCT_PROPERTY_OVERRIDES += \
