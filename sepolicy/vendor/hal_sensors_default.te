@@ -1,2 +1,0 @@
-allow hal_sensors_default default_prop:file { read open map getattr };
-allow hal_sensors_default vendor_adsprpc_prop:file { read open map getattr };
