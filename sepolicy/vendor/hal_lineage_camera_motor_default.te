@@ -1,0 +1,6 @@
+allow hal_lineage_camera_motor_default camera_motor_device:chr_file { open read write };
+allow hal_lineage_camera_motor_default default_android_hwservice:hwservice_manager { add };
+allow hal_lineage_camera_motor_default default_prop:file { read open map getattr };
+allow hal_lineage_camera_motor_default device:chr_file { read open write ioctl };
+allow hal_lineage_camera_motor_default persist_sensors_file:dir { search };
+allow hal_lineage_camera_motor_default persist_sensors_file:file { open read getattr };
