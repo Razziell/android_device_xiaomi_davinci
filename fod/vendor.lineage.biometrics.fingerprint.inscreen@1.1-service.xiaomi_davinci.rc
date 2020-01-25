@@ -9,8 +9,8 @@ on boot
     chmod 0644 /sys/devices/platform/soc/soc:qcom,dsi-display/ea_enable
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/ea_enable
 
-service fingerprint-inscreen-1-0 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci
-    interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
+service fingerprint-inscreen-1-1 /vendor/bin/hw/vendor.lineage.biometrics.fingerprint.inscreen@1.1-service.xiaomi_davinci
+    interface vendor.lineage.biometrics.fingerprint.inscreen@1.1::IFingerprintInscreen default
     class hal
     user system
     group system
