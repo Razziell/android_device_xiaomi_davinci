@@ -178,7 +178,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.renderer=skiavk
+    debug.hwui.renderer=skiagl
 
 # GPS/GNSS
 PRODUCT_PROPERTY_OVERRIDES += \
