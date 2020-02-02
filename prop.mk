@@ -176,6 +176,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_gl_backpressure=1 \
     debug.sf.enable_hwc_vds=1
 
+# Graphics
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.hwui.renderer=skiavk
+
 # GPS/GNSS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.backup.ntpServer=0.pool.ntp.org \
