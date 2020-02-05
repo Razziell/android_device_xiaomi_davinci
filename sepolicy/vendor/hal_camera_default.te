@@ -8,4 +8,4 @@ r_dir_file(hal_camera_default, persist_camera_file)
 set_prop(hal_camera_default, vendor_camera_prop)
 
 allow hal_camera_default sysfs_kgsl:file r_file_perms;
-get_prop(hal_camera_default, vendor_camera_prop)
+get_prop(hal_camera_default, vendor_camera_prop, camera_ro_prop)

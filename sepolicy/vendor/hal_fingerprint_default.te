@@ -13,3 +13,6 @@ allow hal_fingerprint_default sysfs_fod:file rw_file_perms;
 dontaudit hal_fingerprint storage_file:dir search;
 
 binder_call(hal_fingerprint_default, hal_perf_default)
+
+allow hal_fingerprint_default fingerprint_device:chr_file { ioctl };
+allow hal_fingerprint_default sysfs_graphics:file { open };
