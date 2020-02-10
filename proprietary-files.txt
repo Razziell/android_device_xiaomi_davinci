@@ -89,9 +89,7 @@ vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
-vendor/lib/libadm.so
 vendor/lib/libaudcal.so
-vendor/lib/libaudioalsa.so
 -vendor/lib/libaudioparsers.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
@@ -102,34 +100,15 @@ vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
-vendor/lib64/libaudioalsa.so
 -vendor/lib64/libaudioparsers.so
 vendor/lib64/libqtigef.so
 vendor/lib64/soundfx/libasphere.so
 
 # Audio - hardware
 vendor/bin/audioshell_service
-vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudioconfigstore.so
-vendor/lib/libaudioroute_ext.so
-vendor/lib/libcirrusspkrprot.so
-vendor/lib/libcomprcapture.so
-vendor/lib/libhdmiedid.so
-vendor/lib/libhfp.so
 vendor/lib/librice.so
-vendor/lib/libspkrprot.so
-vendor/lib/hw/audio.primary.sm6150.so
 vendor/lib/hw/sound_trigger.primary.sm6150.so
-vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libaudioconfigstore.so
-vendor/lib64/libaudioroute_ext.so
-vendor/lib64/libcirrusspkrprot.so
-vendor/lib64/libcomprcapture.so
-vendor/lib64/libhdmiedid.so
-vendor/lib64/libhfp.so
 vendor/lib64/librice.so
-vendor/lib64/libspkrprot.so
-vendor/lib64/hw/audio.primary.sm6150.so
 vendor/lib64/hw/sound_trigger.primary.sm6150.so
 
 
