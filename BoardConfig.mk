@@ -6,6 +6,8 @@
 
 DEVICE_PATH := device/xiaomi/davinci
 
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
+
 BOARD_VENDOR := xiaomi
 
 BUILD_BROKEN_DUP_RULES := true
