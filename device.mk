@@ -115,6 +115,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.primary.sm6150 \
     audio.usb.default \
+    liba2dpoffload \
     libaudio-resampler \
     libbatterylistener \
     libcirrusspkrprot \
@@ -122,7 +123,6 @@ PRODUCT_PACKAGES += \
     libexthwplugin \
     libhdmiedid \
     libhdmipassthru \
-    libssrec \
     libhfp \
     libqcompostprocbundle \
     libqcomvisualizer \
