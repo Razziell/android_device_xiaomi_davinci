@@ -30,6 +30,8 @@
 
 #define DIM_LAYER_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dim_layer_enable"
 
+#define DC_DIMMING_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/ea_enable"
+
 #define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
 #define DISPPARAM_HBM_FOD_ON "0x20000"
 #define DISPPARAM_HBM_FOD_OFF "0xE0000"
@@ -50,6 +52,8 @@ namespace fingerprint {
 namespace inscreen {
 namespace V1_0 {
 namespace implementation {
+
+int dc_dimming;
 
 template <typename T>
 static T get(const std::string& path, const T& def) {
@@ -109,10 +113,15 @@ Return<void> FingerprintInscreen::onRelease() {
 Return<void> FingerprintInscreen::onShowFODView() {
     set(DIM_LAYER_PATH, 1);
     this->mFodCircleVisible = true;
+    dc_dimming = get(DC_DIMMING_PATH, 0);
+    set(DC_DIMMING_PATH, 0);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
+    if (mFodCircleVisible) {
+        set(DC_DIMMING_PATH, dc_dimming);
+    }
     set(DIM_LAYER_PATH, 0);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     TouchFeatureService->resetTouchMode(Touch_Fod_Enable);
