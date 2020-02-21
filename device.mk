@@ -125,7 +125,6 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libsndmonitor \
     libvolumelistener \
     libtinycompress \
     tinymix
