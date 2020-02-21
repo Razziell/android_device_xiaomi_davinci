@@ -17,6 +17,10 @@ persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.data.df.dev_name=rmnet_usb0
 persist.vendor.data.profile_update=true
 
+# Graphics
+persist.demo.hdmirotationlock=false
+persist.hwc.enable_vds=1
+
 #system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
