@@ -135,6 +135,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_null_display=0 \
     vendor.display.enable_optimize_refresh=1 \
     vendor.gralloc.disable_ubwc=0 \
+    vendor.display.disable_mask_layer_hint=1 \
     ro.sf.lcd_density=440
 
 # Display post-processing
