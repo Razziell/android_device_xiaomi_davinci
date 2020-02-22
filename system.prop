@@ -1,4 +1,5 @@
 # Bluetooth
+bt.max.hfpclient.connections=1
 vendor.bluetooth.soc=cherokee
 vendor.qcom.bluetooth.soc=cherokee
 
