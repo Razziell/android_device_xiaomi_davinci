@@ -325,7 +325,7 @@ vendor/lib64/camera/components/etc/morpho_lowlight4.0_3hdr.xml
 vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high.xml
 vendor/lib64/camera/components/etc/morpho_lowlight4.0_adrc_high_1.xml
 vendor/lib64/camera/components/etc/visidon_clearshot_params.xml
-vendor/lib64/hw/camera.qcom.so|d418178613ff5c7e67dc402aa5d36c95c8d62e38
+vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libFaceGrade.so
 vendor/lib64/libHalSuperSensorServer.so
