@@ -183,8 +183,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_gl_backpressure=1
 
 # Graphics hwui
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.hwui.renderer=skiagl
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    debug.hwui.renderer=skiagl
 
 # GPS/GNSS
 PRODUCT_PROPERTY_OVERRIDES += \
