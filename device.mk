@@ -186,7 +186,8 @@ PRODUCT_PACKAGES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    XiaomiParts
+    XiaomiParts \
+    DeviceSettings
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \

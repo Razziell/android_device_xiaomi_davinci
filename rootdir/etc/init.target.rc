@@ -80,6 +80,9 @@ on post-fs
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
     write /dev/ipa 1
+# Vibrator
+    chown system system /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-01/c440000.qcom,spmi:qcom,pm6150@1:qcom,vibrator@5300/leds/vibrator/vmax_mv
+    chmod 0644 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-01/c440000.qcom,spmi:qcom,pm6150@1:qcom,vibrator@5300/leds/vibrator/vmax_mv
 
 on late-fs
     wait_for_prop hwservicemanager.ready true

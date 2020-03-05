@@ -1,1 +1,3 @@
 allow system_app fs_bpf:dir search;
+allow system_app sysfs_leds:dir search;
+allow system_app sysfs_leds:file { open read write getattr };

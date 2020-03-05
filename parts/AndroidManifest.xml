@@ -26,15 +26,15 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="24"/>
+        android:minSdkVersion="26"
+        android:targetSdkVersion="26"/>
 
     <application
         android:label="@string/device_settings_app_name"
         android:persistent="true">
 
         <receiver android:name=".BootCompletedReceiver">
-            <intent-filter android:priority="1000">
+            <intent-filter android:priority="100">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
