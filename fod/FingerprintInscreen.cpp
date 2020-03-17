@@ -19,6 +19,7 @@
 #include "FingerprintInscreen.h"
 
 #include <android-base/logging.h>
+#include <hardware_legacy/power.h>
 #include <fstream>
 #include <cmath>
 
@@ -107,6 +108,7 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
+    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
     set(DIM_LAYER_PATH, 1);
     this->mFodCircleVisible = true;
     return Void();
@@ -118,6 +120,7 @@ Return<void> FingerprintInscreen::onHideFODView() {
     TouchFeatureService->resetTouchMode(Touch_Fod_Enable);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     this->mFodCircleVisible = false;
+    release_wake_lock(LOG_TAG);
     return Void();
 }
 
