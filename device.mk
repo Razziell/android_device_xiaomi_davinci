@@ -392,8 +392,7 @@ PRODUCT_PACKAGES += \
 
 #Recorder
 PRODUCT_PACKAGES += \
-    Recorder \
-    OPScreenRecorder
+    Recorder
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
