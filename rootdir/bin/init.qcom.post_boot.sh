@@ -54,7 +54,7 @@ function configure_zram_parameters() {
         if [ $MemTotal -le 4194304 ]; then
             echo 2147483648 > /sys/block/zram0/disksize
         else
-            echo 2684354560 > /sys/block/zram0/disksize
+            echo 3221225472 > /sys/block/zram0/disksize
         fi
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
