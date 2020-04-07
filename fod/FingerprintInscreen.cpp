@@ -41,13 +41,23 @@
 #define FOD_SENSOR_Y 1931
 #define FOD_SENSOR_SIZE 190
 
+#define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
+
 namespace vendor {
 namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_1 {
+namespace V1_0 {
 namespace implementation {
+
+template <typename T>
+static T get(const std::string& path, const T& def) {
+    std::ifstream file(path);
+    T result;
+    file >> result;
+    return file.fail() ? def : result;
+}
 
 template <typename T>
 static void set(const std::string& path, const T& value) {
@@ -81,23 +91,16 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
     return Void();
 }
 
-Return<void> FingerprintInscreen::switchHbm(bool enabled) {
-    if (enabled) {
-        set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
-    } else {
-        set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
-    }
-    return Void();
-}
-
 Return<void> FingerprintInscreen::onPress() {
     set(DIM_LAYER_PATH, 1);
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
     TouchFeatureService->setTouchMode(Touch_Fod_Enable, 1);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     TouchFeatureService->setTouchMode(Touch_Fod_Enable, 100);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
@@ -111,6 +114,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 
 Return<void> FingerprintInscreen::onHideFODView() {
     set(DIM_LAYER_PATH, 0);
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     TouchFeatureService->resetTouchMode(Touch_Fod_Enable);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     this->mFodCircleVisible = false;
@@ -131,9 +135,9 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t brightness) {
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t) {
     float alpha;
-    int realBrightness = brightness * 2047 / 255;
+    int realBrightness = get(BRIGHTNESS_PATH, 0);
 
     if (realBrightness > 500) {
         alpha = 1.0 - pow(realBrightness / 2047.0 * 430.0 / 600.0, 0.455);
@@ -153,7 +157,7 @@ Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallb
 }
 
 }  // namespace implementation
-}  // namespace V1_1
+}  // namespace V1_0
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
