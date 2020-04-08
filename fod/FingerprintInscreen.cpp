@@ -36,7 +36,6 @@
 #define DISPPARAM_HBM_FOD_OFF "0xE0000"
 
 #define Touch_Fod_Enable 10
-#define Touch_Aod_Enable 11
 
 #define FOD_SENSOR_X 445
 #define FOD_SENSOR_Y 1931
@@ -102,7 +101,6 @@ Return<void> FingerprintInscreen::onPress() {
 
 Return<void> FingerprintInscreen::onRelease() {
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
-    TouchFeatureService->setTouchMode(Touch_Fod_Enable, 100);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
 }
@@ -117,8 +115,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 Return<void> FingerprintInscreen::onHideFODView() {
     set(DIM_LAYER_PATH, 0);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
-    TouchFeatureService->resetTouchMode(Touch_Fod_Enable);
-    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    TouchFeatureService->setTouchMode(Touch_Fod_Enable, 0);
     this->mFodCircleVisible = false;
     release_wake_lock(LOG_TAG);
     return Void();
