@@ -202,7 +202,6 @@ ro.vendor.qti.config.zram=true
 vendor.power.pasr.enabled=true
 
 # Qualcomm / OEM Unlock
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES +=
 ro.oem_unlock_supported=1
 ro.vendor.qti.va_aosp.support=1
 
@@ -220,7 +219,7 @@ persist.vendor.radio.enable_temp_dds=true
 ril.subscription.types=NV,RUIM
 vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 ro.telephony.default_network=22,22
-ro.telephony.default_cdma_sub
+ro.telephony.default_cdma_sub=0
 telephony.lteOnCdmaDevice=1
 ro.com.android.dataroaming=false
 persist.radio.NO_STAPA=1
