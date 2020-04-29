@@ -1,8 +1,8 @@
 type fingerprint_device, dev_type;
 
-type camera_motor_device, dev_type;
+type drv8846_device, dev_type;
 
-type hall_device, dev_type;
+type akm09970_device, dev_type;
 
 type sound_device, dev_type;
 

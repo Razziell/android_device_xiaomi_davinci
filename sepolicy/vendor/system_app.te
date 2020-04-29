@@ -2,3 +2,4 @@ allow system_app fs_bpf:dir search;
 allow system_app sysfs_leds:dir search;
 allow system_app sysfs_leds:file { open read write getattr };
 allow system_app sysfs_graphics:file { open read write getattr };
+allow system_app hal_lineage_camera_motor_default:binder { call transfer };

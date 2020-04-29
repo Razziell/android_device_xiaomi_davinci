@@ -1,0 +1,12 @@
+get_prop(hal_lineage_camera_motor_default, system_manufacturer_prop)
+
+add_hwservice(hal_lineage_camera_motor_default, hal_motor_hwservice)
+
+allow hal_lineage_camera_motor_default mnt_vendor_file:dir { search };
+allow hal_lineage_camera_motor_default drv8846_device:chr_file rw_file_perms;
+allow hal_lineage_camera_motor_default akm09970_device:chr_file rw_file_perms;
+allow hal_lineage_camera_motor_default persist_sensors_file:dir { search };
+
+allow hal_lineage_camera_motor_default persist_sensors_file:file r_file_perms;
+
+allow hal_lineage_camera_motor_default system_app:binder { call transfer };

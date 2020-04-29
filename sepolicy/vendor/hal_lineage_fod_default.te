@@ -1,13 +1,7 @@
-# Allow binder communication with hal_fingerprint_default
-binder_call(hal_lineage_fod_default, hal_fingerprint_default)
-
-# Allow binder communication with hal_touchfeature_default
-#binder_call(hal_lineage_fod_default, hal_touchfeature_default)
-
-# Allow access to the HALs
-#hal_client_domain(hal_lineage_fod_default, hal_touchfeature)
-
-# Allow hal_lineage_fod_default to read and write to sysfs_fod
 allow hal_lineage_fod_default sysfs_fod:file rw_file_perms;
+allow hal_lineage_fod_default sysfs_graphics:dir r_dir_perms;
+allow hal_lineage_fod_default sysfs_graphics:file rw_file_perms;
 
-allow hal_lineage_fod_default sysfs_graphics:file { getattr open write};
+allow hal_lineage_fod_default hal_fingerprint_hwservice_xiaomi:hwservice_manager find;
+
+binder_call(hal_lineage_fod_default, hal_fingerprint_default, hal_touchfeature_default)
