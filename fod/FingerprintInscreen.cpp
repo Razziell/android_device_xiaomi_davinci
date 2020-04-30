@@ -29,8 +29,6 @@
 #define PARAM_NIT_630_FOD 1
 #define PARAM_NIT_NONE 0
 
-#define DIM_LAYER_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/dim_layer_enable"
-
 #define DISPPARAM_PATH "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/disp_param"
 #define DISPPARAM_HBM_FOD_ON "0x20000"
 #define DISPPARAM_HBM_FOD_OFF "0xE0000"
@@ -92,7 +90,6 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    set(DIM_LAYER_PATH, 1);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
     TouchFeatureService->setTouchMode(Touch_Fod_Enable, 1);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
@@ -107,13 +104,11 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() {
     acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
-    set(DIM_LAYER_PATH, 1);
     this->mFodCircleVisible = true;
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    set(DIM_LAYER_PATH, 0);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     TouchFeatureService->setTouchMode(Touch_Fod_Enable, 0);
     this->mFodCircleVisible = false;
