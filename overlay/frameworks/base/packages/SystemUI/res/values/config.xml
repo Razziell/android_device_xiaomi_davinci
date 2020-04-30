@@ -32,5 +32,8 @@
 
     <!-- The CPU temperature divider, if needed -->
     <integer name="config_cpuTempDivider" translatable="false">1000</integer>
+
+    <!-- Enable face auth only when swiping security view -->
+    <bool name="config_faceAuthOnlyOnSecurityView">true</bool>
 </resources>
 
