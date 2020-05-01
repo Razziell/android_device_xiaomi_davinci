@@ -21,6 +21,9 @@ persist.vendor.data.profile_update=true
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 
+# Display feature
+vendor.hbm.enable=true
+
 #system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true

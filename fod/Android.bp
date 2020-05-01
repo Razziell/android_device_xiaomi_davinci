@@ -19,7 +19,10 @@ cc_binary {
     vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.xml"],
     init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci.rc"],
     defaults: ["hidl_defaults"],
-    srcs: ["service.cpp", "FingerprintInscreen.cpp"],
+    srcs: [
+        "service.cpp",
+        "FingerprintInscreen.cpp",
+    ],
     shared_libs: [
         "libbase",
         "libhardware",
@@ -29,8 +32,9 @@ cc_binary {
         "liblog",
         "libhwbinder",
         "libutils",
-        "vendor.goodix.hardware.biometrics.fingerprint@2.1",
         "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
+        "vendor.goodix.hardware.biometrics.fingerprint@2.1",
+        "vendor.xiaomi.hardware.displayfeature@1.0",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
         "vendor.xiaomi.hardware.touchfeature@1.0",
     ],
