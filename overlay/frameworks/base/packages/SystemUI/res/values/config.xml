@@ -38,5 +38,8 @@
 
     <!-- Whether to disable assist hint on lockscreen -->
     <bool name="config_disableAssistHintOnLockscreen">true</bool>
+
+    <!-- Whether to show biometric help only when failed -->
+    <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
 </resources>
 
