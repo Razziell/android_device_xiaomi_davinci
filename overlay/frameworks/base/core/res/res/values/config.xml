@@ -252,7 +252,7 @@
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
 
     <!-- Whether the display blanks itself when transitioning from a doze to a non-doze state -->
-    <bool name="config_displayBlanksAfterDoze">true</bool>
+    <bool name="config_displayBlanksAfterDoze">false</bool>
 
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
