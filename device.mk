@@ -277,9 +277,8 @@ PRODUCT_PACKAGES += \
     init.qti.chg_policy.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.target.rc \
-    init.safailnet.rc \
     ueventd.qcom.rc \
+    init.target.rc \
     fstab.qcom
 
 # IFAA manager
