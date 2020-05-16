@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci"
+#define LOG_TAG "vendor.lineage.biometrics.fingerprint.inscreen@1.1-service.xiaomi_davinci"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
@@ -24,8 +24,8 @@
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using vendor::lineage::biometrics::fingerprint::inscreen::V1_0::IFingerprintInscreen;
-using vendor::lineage::biometrics::fingerprint::inscreen::V1_0::implementation::FingerprintInscreen;
+using vendor::lineage::biometrics::fingerprint::inscreen::V1_1::IFingerprintInscreen;
+using vendor::lineage::biometrics::fingerprint::inscreen::V1_1::implementation::FingerprintInscreen;
 
 using android::OK;
 using android::status_t;
@@ -33,7 +33,6 @@ using android::status_t;
 int main() {
     android::sp<IFingerprintInscreen> service = new FingerprintInscreen();
 
-    android::hardware::setMinSchedulerPolicy(service, SCHED_NORMAL, -20);
     configureRpcThreadpool(1, true);
 
     status_t status = service->registerAsService();

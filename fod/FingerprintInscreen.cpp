@@ -19,6 +19,8 @@
 #include "FingerprintInscreen.h"
 
 #include <android-base/logging.h>
+#include <hardware_legacy/power.h>
+
 #include <fstream>
 #include <cmath>
 
@@ -30,12 +32,15 @@
 #define FOD_SENSOR_Y 1931
 #define FOD_SENSOR_SIZE 190
 
+#define HBM_OFF_DELAY 50
+#define HBM_ON_DELAY 250
+
 namespace vendor {
 namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 template <typename T>
@@ -70,18 +75,37 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
     return Void();
 }
 
+Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
+    return HBM_OFF_DELAY;
+}
+
+Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
+    return HBM_ON_DELAY;
+}
+
+Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
+    return true;
+}
+
+Return<void> FingerprintInscreen::switchHbm(bool enabled) {
+    if (enabled) {
+        xiaomiDisplayFeatureService->setFeature(0, 11, 1, 3);
+    } else {
+        xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
+    }
+    return Void();
+}
+
 Return<void> FingerprintInscreen::onPress() {
+    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
     TouchFeatureService->setTouchMode(10, 1);
-    xiaomiDisplayFeatureService->setFeature(0, 11, 1, 4);
-    xiaomiDisplayFeatureService->setFeature(0, 11, 1, 3);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    TouchFeatureService->setTouchMode(10, 0);
-    xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    release_wake_lock(LOG_TAG);
     return Void();
 }
 
@@ -92,6 +116,7 @@ Return<void> FingerprintInscreen::onShowFODView() {
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
+    TouchFeatureService->setTouchMode(10, 0);
     xiaomiDisplayFeatureService->setFeature(0, 17, 0, 255);
     return Void();
 }
@@ -132,7 +157,7 @@ Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallb
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
