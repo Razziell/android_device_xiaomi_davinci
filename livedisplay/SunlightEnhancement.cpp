@@ -16,14 +16,28 @@
 
 #define LOG_TAG "SunlightEnhancementService"
 
-#include <fstream>
+#include "SunlightEnhancement.h"
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android-base/strings.h>
 #include <utils/Errors.h>
 
-#include "SunlightEnhancement.h"
+#include <fstream>
+
+namespace {
+
+/* clang-format off */
+#define PPCAT_NX(A, B) A/B
+#define PPCAT(A, B) PPCAT_NX(A, B)
+#define STRINGIFY_INNER(x) #x
+#define STRINGIFY(x) STRINGIFY_INNER(x)
+
+#define DRM(x) PPCAT(/sys/class/drm/, x)
+#define DSI(x) STRINGIFY(PPCAT(DRM(card0-DSI-1), x))
+/* clang-format on */
+
+}  // anonymous namespace
 
 namespace vendor {
 namespace lineage {
@@ -31,28 +45,12 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
-static constexpr const char* kHbmStatusPath =
-        "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/hbm_status";
-
-bool hasAmoledPanel() {
-    std::string device = android::base::GetProperty("ro.product.device", "");
-    return device == "davinci" || device == "davinciin" || device == "tucana";
-}
-
 bool SunlightEnhancement::isSupported() {
-    if (hasAmoledPanel()) {
-        std::ifstream hbm_status_file(kHbmStatusPath);
-        if (!hbm_status_file.is_open()) {
-            LOG(ERROR) << "Failed to open " << kHbmStatusPath << ", error=" << errno
-                       << " (" << strerror(errno) << ")";
-        }
-        return !hbm_status_file.fail();
-    }
-    return false;
+    return true;
 }
 
 Return<bool> SunlightEnhancement::isEnabled() {
-    std::ifstream hbm_status_file(kHbmStatusPath);
+    std::ifstream hbm_status_file(DSI(hbm_status));
     int result = -1;
     hbm_status_file >> result;
     return !hbm_status_file.fail() && result > 0;
@@ -61,6 +59,7 @@ Return<bool> SunlightEnhancement::isEnabled() {
 Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
     xiaomiDisplayFeatureService = IDisplayFeature::getService();
     if (enabled) {
+        xiaomiDisplayFeatureService->setFeature(0, 0, 2, 255);
         xiaomiDisplayFeatureService->setFeature(0, 11, 1, 3);
     } else {
         xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
