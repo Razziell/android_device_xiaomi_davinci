@@ -95,6 +95,10 @@ Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
     return HBM_ON_DELAY;
 }
 
+Return<bool> FingerprintInscreen::noDim() {
+    return false;
+}
+
 Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
     return true;
 }

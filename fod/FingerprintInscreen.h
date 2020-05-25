@@ -60,6 +60,7 @@ public:
     Return<int32_t> getHbmOnDelay() override;
     Return<bool> supportsAlwaysOnHBM() override;
     Return<void> switchHbm(bool enabled) override;
+    Return<bool> noDim() override;
 
 private:
     sp<IDisplayFeature> xiaomiDisplayFeatureService;
