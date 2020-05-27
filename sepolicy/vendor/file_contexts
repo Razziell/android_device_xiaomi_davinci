@@ -41,6 +41,10 @@
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info			u:object_r:sysfs_graphics:s0
 /sys/devices/platform/soc/soc:qcom,dsi-display/ea_enable								u:object_r:sysfs_graphics:s0
 
+# Gpay hack
+/vendor/bin/hack_attest\.sh												u:object_r:hack_attest_exec:s0
+/data/data/com.google.android.gms(/.*)?											u:object_r:hack_attest_data_file:s0
+
 # LED
 /sys/devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-1]/spmi0-0[0-9]/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]:qcom,leds@d000/leds/white(/.*)?	u:object_r:sysfs_leds:s0
 
