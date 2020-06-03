@@ -278,6 +278,7 @@ case "$target" in
             echo "schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+            echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
             echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
 
             # configure governor settings for big cluster
