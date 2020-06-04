@@ -204,6 +204,7 @@ PRODUCT_PACKAGES += \
     libdisplayconfig.vendor \
     libqdMetaData \
     libqdMetaData.system \
+    libqdMetaData.vendor \
     libtinyxml \
     libvulkan \
     memtrack.sm6150 \
