@@ -41,11 +41,5 @@
 
     <!-- Whether to show biometric help only when failed -->
     <bool name="config_biometricHelpShowOnlyWhenFailed">true</bool>
-
-
-    <!-- Type of a sensor that provides a low-power estimate of the desired display
-         brightness, suitable to listen to while the device is asleep (e.g. during
-         always-on display) -->
-    <string name="doze_brightness_sensor_type" translatable="false">xiaomi.sensor.aod</string>
 </resources>
 
