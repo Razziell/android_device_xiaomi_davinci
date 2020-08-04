@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,56 +14,41 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lineage.livedisplay@2.0-service.xiaomi_sm6150"
+#define LOG_TAG "vendor.lineage.livedisplay@2.0-service.xiaomi_sm6150"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include "SunlightEnhancement.h"
+#include "livedisplay/sdm/SDMController.h"
 
 using android::OK;
 using android::sp;
 using android::status_t;
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement;
 using ::vendor::lineage::livedisplay::V2_0::implementation::SunlightEnhancement;
+using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
 
 int main() {
-    sp<SunlightEnhancement> sunlightEnhancement;
-    status_t status;
+    status_t status = OK;
+    std::shared_ptr<SDMController> controller = std::make_shared<SDMController>();
+    sp<SunlightEnhancement> se = new SunlightEnhancement();
+    android::hardware::configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    LOG(INFO) << "LiveDisplay HAL custom service is starting.";
-
-    sunlightEnhancement = new SunlightEnhancement();
-    if (sunlightEnhancement == nullptr) {
-        LOG(ERROR) << "Can not create an instance of LiveDisplay HAL SunlightEnhancement Iface,"
-                   << "exiting.";
-        goto shutdown;
-    }
-
-    if (!sunlightEnhancement->isSupported()) {
-        LOG(ERROR) << "SunlightEnhancement Iface is not supported, gracefully bailing out.";
-        return 1;
-    }
-
-    configureRpcThreadpool(1, true /*callerWillJoin*/);
-
-    status = sunlightEnhancement->registerAsService();
+    // SunlightEnhancement service
+    status = se->registerAsService();
     if (status != OK) {
         LOG(ERROR) << "Could not register service for LiveDisplay HAL SunlightEnhancement Iface ("
                    << status << ")";
-        goto shutdown;
+        return 1;
     }
 
-    LOG(INFO) << "LiveDisplay HAL custom service is ready.";
-    joinRpcThreadpool();
-    // Should not pass this line
+    LOG(INFO) << "LiveDisplay HAL service ready.";
 
-shutdown:
-    // In normal operation, we don't expect the thread pool to shutdown
-    LOG(ERROR) << "LiveDisplay HAL custom service is shutting down.";
+    android::hardware::joinRpcThreadpool();
+
+    LOG(ERROR) << "LiveDisplay HAL service failed to join thread pool.";
     return 1;
 }

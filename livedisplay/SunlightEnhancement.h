@@ -20,7 +20,6 @@
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <vendor/lineage/livedisplay/2.0/ISunlightEnhancement.h>
-#include <vendor/xiaomi/hardware/displayfeature/1.0/IDisplayFeature.h>
 
 namespace vendor {
 namespace lineage {
@@ -31,17 +30,12 @@ namespace implementation {
 using ::android::hardware::Return;
 using ::android::hardware::Void;
 using ::android::sp;
-using ::vendor::xiaomi::hardware::displayfeature::V1_0::IDisplayFeature;
 
 class SunlightEnhancement : public ISunlightEnhancement {
   public:
-    bool isSupported();
-
     // Methods from ::vendor::lineage::livedisplay::V2_0::ISunlightEnhancement follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
-  private:
-    sp<IDisplayFeature> xiaomiDisplayFeatureService;
 };
 
 }  // namespace implementation

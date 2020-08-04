@@ -17,27 +17,8 @@
 #define LOG_TAG "SunlightEnhancementService"
 
 #include "SunlightEnhancement.h"
-
 #include <android-base/logging.h>
-#include <android-base/properties.h>
-#include <android-base/strings.h>
-#include <utils/Errors.h>
-
 #include <fstream>
-
-namespace {
-
-/* clang-format off */
-#define PPCAT_NX(A, B) A/B
-#define PPCAT(A, B) PPCAT_NX(A, B)
-#define STRINGIFY_INNER(x) #x
-#define STRINGIFY(x) STRINGIFY_INNER(x)
-
-#define DRM(x) PPCAT(/sys/class/drm/, x)
-#define DSI(x) STRINGIFY(PPCAT(DRM(card0-DSI-1), x))
-/* clang-format on */
-
-}  // anonymous namespace
 
 namespace vendor {
 namespace lineage {
@@ -45,26 +26,22 @@ namespace livedisplay {
 namespace V2_0 {
 namespace implementation {
 
-bool SunlightEnhancement::isSupported() {
-    return true;
-}
+static constexpr const char* kHbmPath =
+    "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
 
 Return<bool> SunlightEnhancement::isEnabled() {
-    std::ifstream hbm_status_file(DSI(hbm_status));
+    std::ifstream file(kHbmPath);
     int result = -1;
-    hbm_status_file >> result;
-    return !hbm_status_file.fail() && result > 0;
+    file >> result;
+    LOG(DEBUG) << "Got result " << result << " fail " << file.fail();
+    return !file.fail() && result > 0;
 }
 
 Return<bool> SunlightEnhancement::setEnabled(bool enabled) {
-    xiaomiDisplayFeatureService = IDisplayFeature::getService();
-    if (enabled) {
-        xiaomiDisplayFeatureService->setFeature(0, 0, 2, 255);
-        xiaomiDisplayFeatureService->setFeature(0, 11, 1, 3);
-    } else {
-        xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
-    }
-    return false;
+    std::ofstream file(kHbmPath);
+    file << (enabled ? "1" : "0");
+    LOG(DEBUG) << "setEnabled fail " << file.fail();
+    return !file.fail();
 }
 
 }  // namespace implementation

@@ -20,6 +20,7 @@ cc_binary {
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
+        ":vendor.lineage.livedisplay@2.0-sdm-utils",
         "SunlightEnhancement.cpp",
         "service.cpp",
     ],
@@ -31,6 +32,8 @@ cc_binary {
         "libhidltransport",
         "libutils",
         "vendor.lineage.livedisplay@2.0",
-        "vendor.xiaomi.hardware.displayfeature@1.0",
+    ],
+    header_libs: [
+        "vendor.lineage.livedisplay@2.0-sdm-headers",
     ],
 }
