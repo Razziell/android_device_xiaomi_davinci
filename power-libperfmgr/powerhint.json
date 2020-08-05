@@ -215,7 +215,7 @@
       "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/min_freq",
       "Values": [
         "14236",
-        "12298"
+        "12298",
         "9155",
         "7110",
         "4577"
