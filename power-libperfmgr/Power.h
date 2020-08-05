@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_POWER_V1_3_POWER_H
-#define ANDROID_HARDWARE_POWER_V1_3_POWER_H
+#ifndef POWER_LIBPERFMGR_POWER_H_
+#define POWER_LIBPERFMGR_POWER_H_
 
 #include <atomic>
+#include <memory>
 #include <thread>
 
 #include <android/hardware/power/1.3/IPower.h>
@@ -25,8 +26,9 @@
 #include <hidl/Status.h>
 #include <perfmgr/HintManager.h>
 
-#include "CameraMode.h"
 #include "InteractionHandler.h"
+
+#include <vendor/lineage/power/1.0/ILineagePower.h>
 
 namespace android {
 namespace hardware {
@@ -34,23 +36,37 @@ namespace power {
 namespace V1_3 {
 namespace implementation {
 
-using ::android::hardware::power::V1_0::Feature;
-using ::android::hardware::power::V1_3::IPower;
+using ::InteractionHandler;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-using ::InteractionHandler;
+using ::android::hardware::power::V1_0::Feature;
+using ::android::hardware::power::V1_3::IPower;
 using PowerHint_1_0 = ::android::hardware::power::V1_0::PowerHint;
 using PowerHint_1_2 = ::android::hardware::power::V1_2::PowerHint;
 using PowerHint_1_3 = ::android::hardware::power::V1_3::PowerHint;
 using ::android::perfmgr::HintManager;
 
-class Power : public IPower {
+using ::vendor::lineage::power::V1_0::ILineagePower;
+using ::vendor::lineage::power::V1_0::LineageFeature;
+using ::vendor::lineage::power::V1_0::LineagePowerHint;
+
+enum PowerProfile {
+    POWER_SAVE = 0,
+    BALANCED,
+    HIGH_PERFORMANCE,
+    BIAS_POWER_SAVE,
+    BIAS_PERFORMANCE,
+    MAX
+};
+
+class Power : public IPower, public ILineagePower {
   public:
     // Methods from ::android::hardware::power::V1_0::IPower follow.
 
     Power();
+    status_t registerAsSystemService();
 
-    Return<void> setInteractive(bool /* interactive */) override;
+    Return<void> setInteractive(bool interactive) override;
     Return<void> powerHint(PowerHint_1_0 hint, int32_t data) override;
     Return<void> setFeature(Feature feature, bool activate) override;
     Return<void> getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) override;
@@ -65,16 +81,26 @@ class Power : public IPower {
     // Methods from ::android::hardware::power::V1_3::IPower follow.
     Return<void> powerHintAsync_1_3(PowerHint_1_3 hint, int32_t data) override;
 
+    // Methods from ::vendor::lineage::power::V1_0::ILineagePower follow.
+    Return<int32_t> getFeature(LineageFeature feature) override;
+
     // Methods from ::android::hidl::base::V1_0::IBase follow.
-    Return<void> debug(const hidl_handle& fd, const hidl_vec<hidl_string>& args) override;
+    Return<void> debug(const hidl_handle &fd, const hidl_vec<hidl_string> &args) override;
 
   private:
     std::shared_ptr<HintManager> mHintManager;
     std::unique_ptr<InteractionHandler> mInteractionHandler;
+    std::atomic<bool> mVRModeOn;
     std::atomic<bool> mSustainedPerfModeOn;
-    std::atomic<enum CameraStreamingMode> mCameraStreamingMode;
+    std::atomic<bool> mCameraStreamingMode;
     std::atomic<bool> mReady;
     std::thread mInitThread;
+
+    int32_t mNumPerfProfiles;
+    std::atomic<PowerProfile> mCurrentPerfProfile;
+
+    Return<void> updateHint(const char *hint, bool enable);
+    Return<void> setProfile(PowerProfile profile);
 };
 
 }  // namespace implementation
@@ -83,4 +109,4 @@ class Power : public IPower {
 }  // namespace hardware
 }  // namespace android
 
-#endif  // ANDROID_HARDWARE_POWER_V1_3_POWER_H
+#endif  // POWER_LIBPERFMGR_POWER_H_

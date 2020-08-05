@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.power@1.3-service.sm6150-libperfmgr"
+#define LOG_TAG "android.hardware.power@1.3-service.xiaomi-libperfmgr"
 
 #include <android/log.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include "Power.h"
 
+using android::OK;
 using android::sp;
 using android::status_t;
-using android::OK;
 
 // libhwbinder:
 using android::hardware::configureRpcThreadpool;
@@ -33,18 +33,20 @@ using android::hardware::joinRpcThreadpool;
 using android::hardware::power::V1_3::IPower;
 using android::hardware::power::V1_3::implementation::Power;
 
-int main(int /* argc */, char** /* argv */) {
-    ALOGI("Power HAL Service 1.3 for Coral is starting.");
+int main(int /* argc */, char ** /* argv */) {
+    ALOGI("Power HAL Service 1.3 for Xiaomi is starting.");
 
-    android::sp<IPower> service = new Power();
+    android::sp<Power> service = new Power();
     if (service == nullptr) {
         ALOGE("Can not create an instance of Power HAL Iface, exiting.");
         return 1;
     }
-    android::hardware::setMinSchedulerPolicy(service, SCHED_NORMAL, -20);
+    android::sp<IPower> power_service = new Power();
+
+    android::hardware::setMinSchedulerPolicy(power_service, SCHED_NORMAL, -20);
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    status_t status = service->registerAsService();
+    status_t status = service->registerAsSystemService();
     if (status != OK) {
         ALOGE("Could not register service for Power HAL Iface (%d), exiting.", status);
         return 1;
