@@ -223,7 +223,7 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.1-service.xiaomi_davinci \
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.xiaomi_davinci \
     android.hardware.biometrics.fingerprint@2.1-service.xiaomi_davinci
 
 PRODUCT_COPY_FILES += \

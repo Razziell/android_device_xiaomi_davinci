@@ -21,9 +21,6 @@ persist.vendor.data.profile_update=true
 persist.demo.hdmirotationlock=false
 persist.hwc.enable_vds=1
 
-# Display feature
-vendor.hbm.enable=true
-
 #system props for the MM modules
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
@@ -39,6 +36,14 @@ mm.enable.smoothstreaming=true
 #codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF AVI DTS FLV 3GP 3G2 MKV MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF APE DSD MOV XVID
 vendor.mm.enable.qcom_parser=63963135
 persist.mm.enable.prefetch=true
+
+# LMKD
+ro.config.low_ram=false
+ro.lmk.use_psi=true
+ro.lmk.low_ram=false
+ro.lmk.kill_heaviest_task=true
+ro.lmk.kill_timeout_ms=100
+ro.lmk.use_minfree_levels=true
 
 # Netflix
 ro.netflix.bsp_rev=Q6150-17263-1

@@ -60,9 +60,9 @@ void load_davinciglobal() {
     property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
     property_override_dual("ro.product.device", "ro.product.vendor.device", "davinci");
-    property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJEUXM release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci_eea/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJEUXM:user/release-keys");
-    property_override("ro.product.mod_device", "davinci_eea_global");
+    property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJMIXM release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJMIXM:user/release-keys");
+    property_override("ro.product.mod_device", "davinci_global");
     property_override("ro.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 }
@@ -80,9 +80,9 @@ void load_davinci() {
     property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
     property_override_dual("ro.product.device", "ro.product.vendor.device", "davinci");
-    property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V11.0.6.0.QFJEUXM release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci_eea/davinci:10/QKQ1.190825.002/V11.0.6.0.QFJEUXM:user/release-keys");
-    property_override("ro.product.mod_device", "davinci_eea_global");
+    property_override("ro.build.description", "davinci-user 10 QKQ1.190825.002 V12.0.3.0.QFJMIXM release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinci/davinci:10/QKQ1.190825.002/V12.0.3.0.QFJMIXM:user/release-keys");
+    property_override("ro.product.mod_device", "davinci_global");
     property_override("ro.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 }

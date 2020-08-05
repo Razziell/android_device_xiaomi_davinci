@@ -40,11 +40,6 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name=".fod.FodService"
-            android:permission="FodService">
-        </service>
-
         <service android:name=".popupcamera.PopupCameraService"
                  android:permission="PopupCameraService">
         </service>

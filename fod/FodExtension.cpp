@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.fod;
+#include <compositionengine/FodExtension.h>
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.UserHandle;
-
-public class FodUtils {
-    public static void startService(Context context) {
-        context.startServiceAsUser(new Intent(context, FodService.class),
-                UserHandle.CURRENT);
+uint32_t getFodZOrder(uint32_t z, bool touched) {
+    if (touched) {
+        z |= 0x20000000u;
     }
+    return z;
+}
+
+uint64_t getFodUsageBits(uint64_t usageBits, bool touched) {
+    (void) touched;
+    return usageBits;
 }

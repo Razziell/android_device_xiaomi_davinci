@@ -54,7 +54,7 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-    vendor/bin/hw/vendor.display.color@1.0-service | vendor/bin/hw/vendor.qti.hardware.cvp@1.0-service | vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so | vendor/lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so | vendor/lib64/vendor.qti.hardware.cvp@1.0-halimpl.so | vendor/lib/vendor.qti.hardware.cvp@1.0-halimpl.so | lib64/libfm-hci.so | lib/libfm-hci.so | lib64/libwfdnative.so)
+    vendor/bin/hw/vendor.display.color@1.0-service | vendor/bin/hw/vendor.qti.hardware.cvp@1.0-service | vendor/lib64/vendor.qti.hardware.cvp@1.0-halimpl.so | vendor/lib/vendor.qti.hardware.cvp@1.0-halimpl.so | lib64/libfm-hci.so | lib/libfm-hci.so | lib64/libwfdnative.so)
         sed -i "s/android.hidl.base@1.0.so/libhidlbase.so\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00/" "${2}"
         ;;
     vendor/bin/mlipayd@1.1 | vendor/lib64/libmlipay.so | vendor/lib64/libmlipay@1.1.so )

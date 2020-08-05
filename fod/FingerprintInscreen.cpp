@@ -19,10 +19,12 @@
 #include "FingerprintInscreen.h"
 
 #include <android-base/logging.h>
-#include <hardware_legacy/power.h>
-
+#include <fcntl.h>
 #include <fstream>
-#include <cmath>
+#include <hardware_legacy/power.h>
+#include <poll.h>
+#include <sys/stat.h>
+#include <thread>
 
 #define FINGERPRINT_ACQUIRED_VENDOR 6
 
@@ -30,41 +32,70 @@
 #define PARAM_NIT_630_FOD 1
 #define PARAM_NIT_NONE 0
 
+#define Touch_Fod_Enable 10
+#define Touch_Aod_Enable 11
+
 #define FOD_SENSOR_X 445
 #define FOD_SENSOR_Y 1931
 #define FOD_SENSOR_SIZE 190
 
-#define HBM_OFF_DELAY 50
-#define HBM_ON_DELAY 250
+#define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display/fod_ui"
 
-#define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
+namespace {
+static bool readBool(int fd) {
+    char c;
+    int rc;
 
+    rc = lseek(fd, 0, SEEK_SET);
+    if (rc) {
+        LOG(ERROR) << "failed to seek fd, err: " << rc;
+        return false;
+    }
+
+    rc = read(fd, &c, sizeof(char));
+    if (rc != 1) {
+        LOG(ERROR) << "failed to read bool from fd, err: " << rc;
+        return false;
+    }
+
+    return c != '0';
+}
+}
 namespace vendor {
 namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_1 {
+namespace V1_0 {
 namespace implementation {
-
-template <typename T>
-static T get(const std::string& path, const T& def) {
-    std::ifstream file(path);
-    T result;
-    file >> result;
-    return file.fail() ? def : result;
-}
-
-template <typename T>
-static void set(const std::string& path, const T& value) {
-    std::ofstream file(path);
-    file << value;
-}
 
 FingerprintInscreen::FingerprintInscreen() {
     TouchFeatureService = ITouchFeature::getService();
-    xiaomiDisplayFeatureService = IDisplayFeature::getService();
     xiaomiFingerprintService = IXiaomiFingerprint::getService();
+    std::thread([this]() {
+        int fd = open(FOD_UI_PATH, O_RDONLY);
+        if (fd < 0) {
+            LOG(ERROR) << "failed to open fd, err: " << fd;
+            return;
+        }
+
+        struct pollfd fodUiPoll = {
+            .fd = fd,
+            .events = POLLERR | POLLPRI,
+            .revents = 0,
+        };
+
+        while (true) {
+            int rc = poll(&fodUiPoll, 1, -1);
+            if (rc < 0) {
+                LOG(ERROR) << "failed to poll fd, err: " << rc;
+                continue;
+            }
+
+            xiaomiFingerprintService->extCmd(COMMAND_NIT,
+                    readBool(fd) ? PARAM_NIT_630_FOD : PARAM_NIT_NONE);
+        }
+    }).detach();
 }
 
 Return<int32_t> FingerprintInscreen::getPositionX() {
@@ -87,50 +118,23 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
-    return HBM_OFF_DELAY;
-}
-
-Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
-    return HBM_ON_DELAY;
-}
-
-Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
-    return true;
-}
-
-Return<void> FingerprintInscreen::switchHbm(bool enabled) {
-    if (enabled) {
-        xiaomiDisplayFeatureService->setFeature(0, 11, 1, 3);
-    } else {
-        xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
-    }
-    return Void();
-}
-
 Return<void> FingerprintInscreen::onPress() {
     acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
-    TouchFeatureService->setTouchMode(10, 1);
-    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_630_FOD);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
+    TouchFeatureService->resetTouchMode(Touch_Fod_Enable);
     release_wake_lock(LOG_TAG);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    xiaomiDisplayFeatureService->setFeature(0, 17, 1, 255);
-    xiaomiDisplayFeatureService->setFeature(0, 11, 1, 4);
+    TouchFeatureService->setTouchMode(Touch_Fod_Enable, 1);
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
-    TouchFeatureService->setTouchMode(10, 0);
-    xiaomiDisplayFeatureService->setFeature(0, 11, 0, 3);
-    xiaomiDisplayFeatureService->setFeature(0, 17, 0, 255);
     return Void();
 }
 
@@ -170,17 +174,8 @@ Return<void> FingerprintInscreen::setLongPressEnabled(bool) {
     return Void();
 }
 
-Return<int32_t> FingerprintInscreen::getDimAmount(int32_t /* brightness */) {
-    int realBrightness = get(BRIGHTNESS_PATH, 0);
-    float alpha;
-
-    if (realBrightness > 500) {
-        alpha = 1.0 - pow(realBrightness / 2047.0 * 430.0 / 600.0, 0.455);
-    } else {
-        alpha = 1.0 - pow(realBrightness / 1680.0, 0.455);
-    }
-
-    return 255 * alpha;
+Return<int32_t> FingerprintInscreen::getDimAmount(int32_t /*brightness*/) {
+    return 0;
 }
 
 Return<bool> FingerprintInscreen::shouldBoostBrightness() {
@@ -197,7 +192,7 @@ Return<void> FingerprintInscreen::setCallback(const sp<IFingerprintInscreenCallb
 }
 
 }  // namespace implementation
-}  // namespace V1_1
+}  // namespace V1_0
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
