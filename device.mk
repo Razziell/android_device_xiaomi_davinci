@@ -172,6 +172,7 @@ PRODUCT_PACKAGES += \
     libgui_vendor \
     libdng_sdk.vendor \
     libxml2 \
+    libshim_megvii \
     Snap
 
 # Codec2 modules
