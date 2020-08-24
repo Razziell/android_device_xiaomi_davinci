@@ -1,2 +1,5 @@
 allow platform_app system_app_data_file:dir r_dir_perms;
 allow platform_app sysfs_graphics:file r_file_perms;
+
+# for faceunlock
+allow platform_app sensors_prop:file { read open getattr map };
