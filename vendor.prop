@@ -126,7 +126,6 @@ vendor.display.enable_optimize_refresh=1
 vendor.gralloc.disable_ubwc=0
 vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.display.disable_mask_layer_hint=1
-ro.sf.lcd_density=440
 
 # Display post-processing
 ro.display.type=oled
