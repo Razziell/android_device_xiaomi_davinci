@@ -1,11 +1,3 @@
-ro.adb.secure=0
-ro.secure=0
-ro.debuggable=1
-persist.logd.logpersistd=logcatd
-persist.service.adb.enable=1
-persist.sys.usb.config=mtp,adb
-ro.logd.size.stats=16M
-
 # Audio
 af.fast_track_multiplier=1
 vendor.audio.adm.buffering.ms=6
