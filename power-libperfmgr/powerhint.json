@@ -184,6 +184,40 @@
         "ResetOnInit": true
       },
       {
+        "Name": "DDRlatfloorMinFreq",
+        "Path": "/sys/class/devfreq/soc:qcom,cpu6-cpu-ddr-latfloor/min_freq",
+        "Values": [
+          "6881",
+          "5931",
+          "5161",
+          "3879",
+          "2929",
+          "2597",
+          "2086",
+          "1720",
+          "1144",
+          "762"
+        ],
+        "ResetOnInit": true
+      },
+      {
+        "Name": "LLCClatMinFreq",
+        "Path": "/sys/class/devfreq/soc:qcom,cpu6-llcc-ddr-lat/min_freq",
+        "Values": [
+          "6881",
+          "5931",
+          "5161",
+          "3879",
+          "2929",
+          "2597",
+          "2086",
+          "1720",
+          "1144",
+          "762"
+        ],
+        "ResetOnInit": true
+      },
+      {
         "Name": "CameraHalCpuset",
         "Path": "/dev/cpuset/camera-daemon/cpus",
         "Values": [
@@ -499,6 +533,18 @@
       {
         "PowerHint": "LAUNCH",
         "Node": "LLCCBWMinFreq",
+        "Duration": 3000,
+        "Value": "6881"
+      },
+      {
+        "PowerHint": "LAUNCH",
+        "Node": "DDRlatfloorMinFreq",
+        "Duration": 3000,
+        "Value": "6881"
+      },
+      {
+        "PowerHint": "LAUNCH",
+        "Node": "LLCClatMinFreq",
         "Duration": 3000,
         "Value": "6881"
       },
