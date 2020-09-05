@@ -8,5 +8,7 @@ allow hal_lineage_fod_default hal_touchfeature_hwservice:hwservice_manager find;
 # Allow binder communication with hal_lineage_fod_default
 binder_call(hal_lineage_fod_default, hal_fingerprint_default)
 
+wakelock_use(hal_lineage_fod_default)
+
 # Allow binder communication with hal_touchfeature_default
 binder_call(hal_lineage_fod_default, hal_touchfeature_default)
