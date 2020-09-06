@@ -100,6 +100,9 @@ persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
 ro.bluetooth.a2dp_offload.supported=true
 
+# Camera
+persist.camera.gyro.disable=0
+
 # Ccodec
 debug.stagefright.ccodec=1
 debug.stagefright.omx_default_rank.sw-audio=1
@@ -156,11 +159,11 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Graphics
 debug.sf.enable_gl_backpressure=1
+debug.sf.latch_unsignaled=1
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 
 # Graphics hwui
-#
 #debug.hwui.renderer=skiagl
 
 # GPS/GNSS
@@ -179,7 +182,6 @@ persist.vendor.data.mode=concurrent
 ro.vendor.use_data_netmgrd=true
 
 # Network Location Provider
-
 ro.location.osnlp.package=com.google.android.gms
 ro.location.osnlp.region.package=""
 
@@ -187,7 +189,7 @@ ro.location.osnlp.region.package=""
 ro.vendor.se.type=eSE,HCE,UICC
 
 # Perf Stack
-ro.vendor.qti.config.zram=true
+ro.vendor.extension_library=libqti-perfd-client.so
 
 # Power
 vendor.power.pasr.enabled=true
@@ -242,11 +244,13 @@ ro.surface_flinger.use_color_management=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 
 
-debug.sf.early_phase_offset_ns=1500000
-debug.sf.early_app_phase_offset_ns=1500000
+debug.sf.enable_egl_image_tracker=1
+debug.sf.early_phase_offset_ns=11600000
+debug.sf.early_app_phase_offset_ns=11600000
 debug.sf.early_gl_phase_offset_ns=3000000
 debug.sf.early_gl_app_phase_offset_ns=15000000
-debug.sf.latch_unsignaled=1
+debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
+
 
 # Time
 persist.vendor.delta_time.enable=true

@@ -57,6 +57,9 @@ ro.nfc.port=I2C
 # Time
 persist.timed.enale=true
 
+# WiFi
+wifi.interface=wlan0
+
 # Wireless display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
