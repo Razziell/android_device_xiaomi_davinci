@@ -10,7 +10,6 @@ ro.vendor.audio.hifi=true
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 ro.vendor.audio.sos=true
-ro.vendor.audio.soundfx.type=mi
 ro.vendor.audio.soundfx.usb=true
 ro.vendor.audio.soundtrigger=xiaomi
 ro.vendor.audio.soundtrigger.lowpower=false
