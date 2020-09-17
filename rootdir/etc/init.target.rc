@@ -250,20 +250,16 @@ on property:sys.shutdown.requested=*
     stop vendor.per_proxy
 
 on charger
-    setprop vendor.usb.controller a600000.dwc3
-    setprop sys.usb.configfs 1
-    start vendor.power_off_alarm
-    symlink /dev/block/platform/soc/1da4000.ufshc /dev/block/bootdevice
-    mkdir /mnt/vendor/persist
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
-    mkdir /mnt/vendor/persist/subsys 0770 root system
-    wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/system
+    mount ext4 /dev/block/platform/soc/1da4000.ufshc/by-name/system / ro barrier=1
 
-service spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
+    wait /dev/block/platform/soc/1da4000.ufshc/by-name/persist
+    mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid nodev barrier=1
+
+    start vendor.hvdcp_opti
+    start vendor.thermal-engine
+    start vendor.qcom-post-boot
+    start vendor.power_off_alarm
 
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
