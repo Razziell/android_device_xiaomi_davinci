@@ -104,30 +104,20 @@ persist.camera.gyro.disable=0
 
 # Ccodec
 debug.stagefright.ccodec=1
-debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
 
 # Display
-debug.egl.hw=0
-debug.mdpcomp.logs=0
-debug.sf.disable_backpressure=1
-debug.sf.enable_hwc_vds=1
-debug.sf.hw=0
-persist.sys.sf.color_saturation=1.0
-ro.opengles.version=196610
 vendor.display.comp_mask=0
+vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.display.disable_decimation=1
 vendor.display.disable_excl_rect=0
+vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_inline_rotator=1
 vendor.display.disable_scaler=0
 vendor.display.disable_ui_3d_tonemap=1
 vendor.display.enable_default_color_mode=1
-vendor.display.enable_force_split=0
 vendor.display.enable_null_display=0
 vendor.display.enable_optimize_refresh=1
-vendor.gralloc.disable_ubwc=0
-vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
-vendor.display.disable_mask_layer_hint=1
 
 # Display post-processing
 ro.display.type=oled
@@ -157,8 +147,16 @@ vendor.hw.fm.init=0
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Graphics
-debug.sf.enable_gl_backpressure=1
+debug.egl.hw=0
+debug.hwui.renderer=opengl
+debug.mdpcomp.logs=0
+debug.sf.enable_hwc_vds=1
+debug.sf.hw=1
 debug.sf.latch_unsignaled=1
+ro.hardware.egl=adreno
+ro.opengles.version=196610
+ro.hardware.vulkan=adreno
+vendor.gralloc.disable_ubwc=0
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 
