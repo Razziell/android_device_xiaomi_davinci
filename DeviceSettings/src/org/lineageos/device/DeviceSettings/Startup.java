@@ -31,11 +31,6 @@ public class Startup extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent bootintent) {
 
         VibratorStrengthPreference.restore(context);
-
-        boolean enabled = false;
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false);
-        restore(DCModeSwitch.getFile(), enabled);
     }
 
     private void restore(String file, boolean enabled) {

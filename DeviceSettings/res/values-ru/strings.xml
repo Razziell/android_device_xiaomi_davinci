@@ -14,12 +14,6 @@
 <resources>
     <string name="device_title">Настройки устройства</string>
     <string name="device_summary">Отрегулируйте настройки устройства</string>
-    <!-- Display modes -->
-    <string name="display_title">Режимы экрана</string>
-    <string name="display_summary">Настройки и параметры экрана</string>
-    <string name="dc_mode_summary"></string>
-    <string name="dc_mode_title">DC-Dimming</string>
-    <string name="tile_dc_mode">DC-Dimming</string>
 
     <!-- Vibration control -->
     <string name="category_vibrator">Вибрация</string>
