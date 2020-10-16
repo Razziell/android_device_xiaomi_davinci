@@ -69,15 +69,6 @@ void load_davinciglobal() {
     property_override("ro.boot.verifiedbootstate", "green");
 }
 
-void load_davinciin() {
-    property_override_dual("ro.product.model", "ro.vendor.product.model", "Redmi K20");
-    property_override("ro.build.product", "davinciin");
-    property_override_dual("ro.product.device", "ro.product.vendor.device",  "davinciin");
-    property_override("ro.build.description", "davinciin-user 9 PKQ1.190302.001 V10.3.8.0.PFJINXM release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "Xiaomi/davinciin/davinciin:9/PKQ1.190302.001/V10.3.8.0.PFJINXM:user/release-keys");
-    property_override("ro.product.mod_device", "davinciin_in_global");
-}
-
 void load_davinci() {
     property_override_dual("ro.product.model", "ro.vendor.product.model", "Mi 9T");
     property_override("ro.build.product", "davinci");
@@ -104,8 +95,6 @@ void vendor_load_properties()
 
     if (buf.find("CN") != std::string::npos) {
         load_davinci();
-    } else if (buf.find("INDIA") != std::string::npos) {
-        load_davinciin();
     } else if (buf.find("GLOBAL") != std::string::npos) {
         load_davinciglobal();
     }
