@@ -32,10 +32,6 @@
 # DSP
 /dsp(/.*)?														u:object_r:adsprpcd_file:s0
 
-# Gpay hack
-/vendor/bin/hack_attest\.sh												u:object_r:hack_attest_exec:s0
-/data/data/com.google.android.gms(/.*)?										u:object_r:hack_attest_data_file:s0
-
 # Graphics nodes
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/panel_info			u:object_r:sysfs_graphics:s0
 

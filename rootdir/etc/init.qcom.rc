@@ -600,13 +600,6 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     disabled
     oneshot
 
-service hack_attest /vendor/bin/hack_attest.sh
-    class late_start
-    user root
-    group shell
-    oneshot
-    disabled
-
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     #WDSP FW boot sysfs node used by STHAL
@@ -618,7 +611,6 @@ on property:sys.boot_completed=1
     write /sys/devices/soc0/image_variant "${ro.product.name}-${ro.build.type}"
     write /sys/devices/soc0/image_crm_version "REL"
     start qcom-post-boot
-    start hack_attest
 
     # Enable ZRAM on boot_complete
     swapon_all /vendor/etc/fstab.qcom
