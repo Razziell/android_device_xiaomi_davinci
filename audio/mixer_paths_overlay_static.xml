@@ -477,7 +477,6 @@
         <ctl name="EAR PA GAIN" value="G_6_DB" />
     </path>
 
-    <!-- TX Main-mic D:0 dB -->
     <path name="handset-mic">
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
@@ -491,7 +490,6 @@
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="ADC2 Volume" value="12" />
         <ctl name="ADC1 Volume" value="12" />
-        <ctl name="DEC7 Volume" value="84"/>
     </path>
 
     <path name="speaker-mic">
@@ -512,7 +510,7 @@
         <ctl name="HPHR_RDAC Switch" value="1" />
     </path>
 
-    <!-- TX Dual-mic 1st MIC D:0 dB, 2nd MIC:0 dB -->
+    <!-- Dual MIC devices -->
     <path name="handset-dmic-endfire">
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
@@ -526,8 +524,6 @@
         <ctl name="ADC2 MUX" value="INP3" />
         <ctl name="ADC2 Volume" value="12" />
         <ctl name="ADC1 Volume" value="12" />
-        <ctl name="DEC7 Volume" value="88"/>
-        <ctl name="DEC8 Volume" value="88"/>
     </path>
 
     <path name="speaker-dmic-endfire">
@@ -647,10 +643,8 @@
         <ctl name="ADC1 Volume" value="6" />
     </path>
 
-    <!-- VR MIC 1st D:22 dB -->
     <path name="voice-rec-mic">
         <path name="handset-mic" />
-        <ctl name="DEC7 Volume" value="106"/>
     </path>
 
     <path name="asr-mic">
