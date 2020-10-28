@@ -106,6 +106,10 @@ persist.camera.gyro.disable=0
 debug.stagefright.ccodec=1
 debug.stagefright.omx_default_rank=0
 
+# Crypto
+ro.crypto.allow_encrypt_override=true
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Display
 vendor.display.comp_mask=0
 vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
