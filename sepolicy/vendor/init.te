@@ -11,4 +11,3 @@ allow init ion_device:chr_file ioctl;
 allow init hal_perf_default:binder call;
 allow init bt_firmware_file:filesystem { getattr } ;
 allow init firmware_file:filesystem { getattr } ;
-allow init persist_file:lnk_file { read } ;

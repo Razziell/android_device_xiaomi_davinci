@@ -10,3 +10,20 @@ allow hal_lineage_camera_motor_default persist_sensors_file:dir { search };
 allow hal_lineage_camera_motor_default persist_sensors_file:file r_file_perms;
 
 allow hal_lineage_camera_motor_default system_app:binder { call transfer };
+
+# Allow hal_lineage_camera_motor_default to read and write to { drv8846_device akm09970_device }
+allow hal_lineage_camera_motor_default {
+  drv8846_device
+  akm09970_device
+}:chr_file rw_file_perms;
+
+# Allow hal_lineage_camera_motor_default to read and write to { mnt_vendor_file persist_sensors_file }
+allow hal_lineage_camera_motor_default {
+  mnt_vendor_file 
+  persist_sensors_file
+}:dir rw_dir_perms;
+
+allow hal_lineage_camera_motor_default {
+  mnt_vendor_file
+  persist_sensors_file
+}:file create_file_perms;
