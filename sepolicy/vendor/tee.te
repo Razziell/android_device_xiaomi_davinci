@@ -1,8 +1,12 @@
-allow tee mnt_vendor_file:dir { add_name write remove_name };
-allow tee vendor_data_file:dir { write add_name remove_name };
+allow tee {
+  fingerprint_data_file
+  vendor_data_file
+  mnt_vendor_file
+}:dir create_dir_perms;
 
-allow tee fingerprint_data_file:dir create_dir_perms;
 allow tee {
   fingerprint_data_file
   mnt_vendor_file
 }:file create_file_perms;
+
+allow tee tmpfs:dir { read };

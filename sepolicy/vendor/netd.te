@@ -1,0 +1,2 @@
+allow netd proc_net:file { create };
+allow netd sysfs_net:file { create };
