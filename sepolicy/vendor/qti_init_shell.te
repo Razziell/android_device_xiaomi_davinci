@@ -1,2 +1,6 @@
-dontaudit qti_init_shell self:capability { dac_override dac_read_search };
 allow qti_init_shell sysfs:file r_file_perms;
+allow qti_init_shell sysfs:file { create write };
+allow qti_init_shell sysfs_devfreq:file { create };
+allow qti_init_shell sysfs_devices_system_cpu:file { create };
+allow qti_init_shell sysfs_msm_power:file { create };
+dontaudit qti_init_shell self:capability { dac_override dac_read_search };

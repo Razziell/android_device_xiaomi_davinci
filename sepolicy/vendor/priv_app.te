@@ -1,4 +1,10 @@
 allow priv_app vendor_default_prop:file { read getattr map open };
+allow priv_app sysfs_loop:file { open read };
+allow priv_app sysfs_android_usb:file { open };
+allow priv_app device:dir { open };
+allow priv_app proc_interrupts:file { open };
+allow priv_app proc_modules:file { open };
+allow priv_app sysfs:dir { open };
 dontaudit priv_app bt_firmware_file:filesystem getattr;
 dontaudit priv_app firmware_file:filesystem getattr;
 dontaudit priv_app mnt_vendor_file:dir search;
