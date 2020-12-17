@@ -60,11 +60,6 @@ function blob_fixup() {
     vendor/bin/mlipayd@1.1 | vendor/lib64/libmlipay.so | vendor/lib64/libmlipay@1.1.so )
         patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "${2}"
         ;;
-    vendor/lib64/hw/camera.qcom.so)
-        patchelf --remove-needed "libMegviiFacepp-0.5.2.so" "${2}"
-        patchelf --remove-needed "libmegface.so" "${2}"
-        patchelf --add-needed "libshim_megvii.so" "${2}"
-        ;;
     esac
 }
 
