@@ -269,12 +269,10 @@ PRODUCT_PACKAGES += \
 
 # Init scripts
 PRODUCT_PACKAGES += \
-    init.msm.usb.configfs.rc \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qti.chg_policy.sh \
     init.qcom.usb.rc \
-    init.qcom.usb.sh \
     ueventd.qcom.rc \
     init.target.rc \
     fstab.qcom
