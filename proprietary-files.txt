@@ -153,10 +153,13 @@ vendor/lib64/soundfx/libqcvirt.so
 vendor/firmware/tfa98xx.cnt
 
 # Bluetooth
+vendor/lib64/libbthost_if.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/lib/libbthost_if.so
+vendor/lib/libbtnv.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 
@@ -576,7 +579,7 @@ vendor/lib64/libssd.so
 # DRM (widevine) - from Mi 9T Pro QKQ1.190825.002 V11.0.8.0.QFKCNXM
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|3522890cda1defadaaa79259f0fd28490f533c79
-vendor/lib64/libwvhidl.so|6418b2ace2f3c9758ac54edb85a4dea43accfa9a
+vendor/lib64/libwvhidl.so|5aed414b3fdf20777b10e8fab51cd21090d5d760
 vendor/lib64/mediadrm/libwvdrmengine.so|4f78d73cfddc0b5bc9a5dcbb20470beaad0d3047
 
 # ESE-Powermanager
