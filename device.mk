@@ -109,6 +109,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@5.0 \
     android.hardware.audio.common@5.0 \
     android.hardware.audio.common@5.0-util \
+    android.hardware.audio.common@2.0-util \
     android.hardware.audio@2.0-impl \
     android.hardware.audio@5.0-impl \
     android.hardware.audio@2.0-service \
@@ -126,6 +127,7 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libvolumelistener \
     libtinycompress \
+    libtinycompress.vendor \
     tinymix
 
 PRODUCT_COPY_FILES += \
