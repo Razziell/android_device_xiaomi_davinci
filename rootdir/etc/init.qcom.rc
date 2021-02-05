@@ -69,7 +69,6 @@ on early-boot
     write /sys/devices/virtual/npu/msm_npu/boot 1
     write /sys/kernel/boot_slpi/boot 1
     write /sys/devices/virtual/cvp/cvp/boot 1
-    setprop ro.vendor.alarm_boot false
 
     # SSR Setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED

@@ -271,8 +271,9 @@ PRODUCT_PACKAGES += \
 # Init scripts
 PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
-    init.qcom.rc \
     init.qti.chg_policy.sh \
+    init.qcom.early_boot.sh \
+    init.qcom.rc \
     init.qcom.usb.rc \
     ueventd.qcom.rc \
     init.target.rc \
