@@ -269,6 +269,7 @@ persist.dbg.wfc_avail_ovr=1
 ro.wlan.vendor=qcom
 config.disable_rtt=true
 persist.vendor.data.iwlan.enable=true
+ro.telephony.iwlan_operation_mode=legacy
 ro.wlan.mimo=0
 ro.wlan.chip=39xx
 ro.hardware.wlan.vendor=qcom
