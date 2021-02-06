@@ -48,19 +48,6 @@ on early-fs
     start vold
 
 on fs
-    start hwservicemanager
-    mount_all /vendor/etc/fstab.qcom --early
-    chown root system /mnt/vendor/persist
-    chmod 0771 /mnt/vendor/persist
-    mkdir /mnt/vendor/persist/subsys 0770 root system
-    restorecon_recursive /mnt/vendor/persist
-    mkdir /mnt/vendor/persist/data 0700 system system
-    mkdir /mnt/vendor/persist/stability 0755 system system
-    mkdir /dev/logfs 0771 system system
-    mkdir /mnt/vendor/persist/audio 0755 system system
-    #+ add for watermark
-    mkdir /mnt/vendor/persist/camera 0777 root root
-
     chown system system /dev/tfa_reg
     chown system system /dev/tfa_rw
     chown system system /dev/tfa_rpc
@@ -69,7 +56,6 @@ on fs
     chmod 0660 /dev/tfa_rw
     chmod 0660 /dev/tfa_rpc
     chmod 0660 /dev/tfa_control
-    chmod 644 /persist/audio/us_manual_cal
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -82,7 +68,6 @@ on post-fs
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
     mkdir /data/vendor/hbtp 0750 system system
-    mkdir /persist/qti_fp 0700 system system
     mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/nfc 0770 nfc nfc
     mkdir /data/vendor/thermal 0771 root system
@@ -105,11 +90,6 @@ on post-fs
     # Smart charging
     chown system system /sys/class/power_supply/battery/input_suspend
     chmod 0666 /sys/class/power_supply/battery/input_suspend
-
-on late-fs
-    wait_for_prop hwservicemanager.ready true
-    exec_start wait_for_keymaster
-    mount_all /vendor/etc/fstab.qcom --late
 
 on boot
     start rmt_storage
