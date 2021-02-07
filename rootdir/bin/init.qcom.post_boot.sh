@@ -304,8 +304,6 @@ case "$target" in
             # Turn on sleep modes.
             echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
 
-            start vendor.power-hal-1-3
-
             # Enable boeffla_wakelock_blocker
             echo 1 > /sys/class/misc/boeffla_wakelock_blocker/enabled
           ;;
