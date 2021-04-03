@@ -105,6 +105,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# sounds
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sounds/ClassicalTheme.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/alarms/ClassicalTheme.ogg \
+    $(LOCAL_PATH)/sounds/Staryj_telefon.mp3:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ringtones/Staryj_telefon.mp3 \
+    $(LOCAL_PATH)/sounds/pixiedust.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/notifications/pixiedust.ogg
+
 # WiFi
 PRODUCT_PACKAGES += \
     DavinciWifiOverlay
