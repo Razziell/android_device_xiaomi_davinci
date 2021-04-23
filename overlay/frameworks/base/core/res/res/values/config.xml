@@ -370,6 +370,9 @@
         <item>/system/lib64/libRSDriver.so</item>
         <item>/system/lib64/libRSCpuRef.so</item>
         <item>/system/lib64/libblas.so</item>
+        <item>/system/lib64/libsurfaceflinger.so</item>
+        <item>/product/priv-app/SystemUI/SystemUI.apk</item>
+        <item>/product/priv-app/SystemUI/oat/arm64/SystemUI.odex</item>
     </string-array>
 
     <!-- List of files pinned by the Pinner Service with the apex boot image b/119800099 -->
