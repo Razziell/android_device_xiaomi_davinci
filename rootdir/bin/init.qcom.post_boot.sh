@@ -87,7 +87,11 @@ case "$target" in
             echo 80 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load
 
             echo "0:0 1:0 2:0 3:0 4:0 5:0 6:2169600 7:0" > /sys/module/cpu_boost/parameters/input_boost_freq
-            echo 100 > /sys/module/cpu_boost/parameters/input_boost_ms
+            echo 300 > /sys/module/cpu_boost/parameters/input_boost_ms
+
+            # powerkey input boost
+            echo "0:0 1:0 2:0 3:0 4:0 5:0 6:2169600 7:0" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
+            echo 300 > /sys/module/cpu_boost/parameters/powerkey_input_boost_ms
 
             # Enable bus-dcvs
             for device in /sys/devices/platform/soc
