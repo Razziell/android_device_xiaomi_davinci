@@ -478,6 +478,12 @@
       },
       {
         "PowerHint": "INTERACTION",
+        "Node": "LLCCBWMinFreq",
+        "Duration": 0,
+        "Value": "6881"
+      },
+      {
+        "PowerHint": "INTERACTION",
         "Node": "GPUMinFreq",
         "Duration": 0,
         "Value": "355000000"
@@ -509,7 +515,7 @@
       {
         "PowerHint": "LAUNCH",
         "Node": "GPUMinFreq",
-        "Duration": 1500,
+        "Duration": 2000,
         "Value": "430000000"
       },
       {
