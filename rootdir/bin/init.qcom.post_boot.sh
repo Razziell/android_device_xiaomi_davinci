@@ -69,7 +69,7 @@ case "$target" in
             echo "schedutil" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
             echo 500 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
             echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
-            echo 1248000 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
+            echo 1324800 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
             echo 576000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
             echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/pl
 
@@ -86,8 +86,8 @@ case "$target" in
             echo -6 >  /sys/devices/system/cpu/cpu7/sched_load_boost
             echo 80 > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load
 
-            echo "0:0 1:0 2:0 3:0 4:0 5:0 6:2169600 7:0" > /sys/module/cpu_boost/parameters/input_boost_freq
-            echo 300 > /sys/module/cpu_boost/parameters/input_boost_ms
+            echo "0:0 1:0 2:0 3:0 4:0 5:0 6:1843200 7:0" > /sys/module/cpu_boost/parameters/input_boost_freq
+            echo 150 > /sys/module/cpu_boost/parameters/input_boost_ms
 
             # powerkey input boost
             echo "0:0 1:0 2:0 3:0 4:0 5:0 6:2169600 7:0" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
