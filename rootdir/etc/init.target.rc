@@ -92,8 +92,7 @@ on post-fs
     chmod 0666 /sys/class/power_supply/battery/input_suspend
 
 on boot
-    start rmt_storage
-    start rfs_access
+    start vendor.rmt_storage
     chown system system /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 0
 
