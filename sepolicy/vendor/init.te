@@ -3,3 +3,5 @@ dontaudit init firmware_file:filesystem getattr;
 
 allow init debugfs_tracing_debug:dir mounton;
 allow vendor_init self:capability kill;
+
+allow init adsprpcd_file:file mounton;
