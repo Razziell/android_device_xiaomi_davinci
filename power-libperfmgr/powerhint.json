@@ -419,79 +419,79 @@
       {
         "PowerHint": "SUSTAINED_PERFORMANCE",
         "Node": "PowerHALMainState",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "SUSTAINED_PERFORMANCE"
       },
       {
         "PowerHint": "SUSTAINED_PERFORMANCE",
         "Node": "CPUBigClusterMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "1555200"
       },
       {
         "PowerHint": "SUSTAINED_PERFORMANCE",
         "Node": "CPULittleClusterMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "1324800"
       },
       {
         "PowerHint": "SUSTAINED_PERFORMANCE",
         "Node": "GPUMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "430000000"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "CPUBigClusterMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "1209600"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "CPULittleClusterMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "1248000"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "TASchedtuneHighCap",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "1"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "CPUBWMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "9155"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "DDRLatfloor",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "6881"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "GPUBusMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "6881"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "LLCCBWMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "6881"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "GPUMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "355000000"
       },
       {
         "PowerHint": "INTERACTION",
         "Node": "DDRLat",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "6881"
       },
       {
@@ -629,79 +629,79 @@
       {
         "PowerHint": "EXPENSIVE_RENDERING",
         "Node": "PowerHALRenderingState",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "EXPENSIVE_RENDERING"
       },
       {
         "PowerHint": "EXPENSIVE_RENDERING",
         "Node": "GPUMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "430000000"
       },
       {
         "PowerHint": "EXPENSIVE_RENDERING",
         "Node": "GPUMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "610000000"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "CPULittleClusterMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "576000"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "CPULittleClusterMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "576000"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "CPUBigClusterMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "652800"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "CPUBigClusterMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "652800"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "GPUBusMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "0"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "DDRLat",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "0"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "DDRLatfloor",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "0"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "GPUMinFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "180000000"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "GPUMaxFreq",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "180000000"
       },
       {
         "PowerHint": "NOT_INTERACTIVE",
         "Node": "TASchedtuneHighCap",
-        "Duration": 0,
+        "Duration": 100,
         "Value": "0"
       }
     ]
