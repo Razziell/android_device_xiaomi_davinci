@@ -745,9 +745,9 @@ vendor/lib/libllvm-qcom.so|5ea2df7b1566438906b4ff43faa6423216bd9260
 vendor/lib/libOpenCL.so|c105d1d6cfef52faa1561d1e57d0d7dd5b4c368a
 vendor/lib/libOpenCL.so:lib/libOpenCL.so|c105d1d6cfef52faa1561d1e57d0d7dd5b4c368a
 
-# Graphics (Vulkan)
-vendor/lib/hw/vulkan.sm6150.so
-vendor/lib64/hw/vulkan.sm6150.so
+# Graphics (Vulkan from sunfish:10-QD4A.200317.027-6463901:user-release-keys)
+vendor/lib/hw/vulkan.sm6150.so|82ec5c02706e370379409a4b9a44befaaee7c44d
+vendor/lib64/hw/vulkan.sm6150.so|8f557c167260844006d2cbd0d73143426fb537cd
 
 # HotwordEnrollment
 -product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk;PRESIGNED|0741b5ada5d9da2227b4ff0bc77c3be7d6eb430b
