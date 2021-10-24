@@ -11,10 +11,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from davinci device
 $(call inherit-product, device/xiaomi/davinci/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common syberia stuff.
+$(call inherit-product, vendor/syberia/common.mk)
+TARGET_BOOT_ANIMATION_RES := 1080
+SYBERIA_BUILD_TYPE := OFFICIAL
 
-PRODUCT_NAME := lineage_davinci
+PRODUCT_NAME := syberia_davinci
 PRODUCT_DEVICE := davinci
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9T
