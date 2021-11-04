@@ -10,6 +10,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit from sm6150-common
 $(call inherit-product, device/xiaomi/sm6150-common/sm6150.mk)
 
+# Gapps
+$(call inherit-product, vendor/gapps/common/common-vendor.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.sm6150 \
@@ -26,6 +29,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_idp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_idp.xml \
     $(LOCAL_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml
+
+# Camera
+PRODUCT_PACKAGES += \
+    GoogleCamera
 
 # Camera motor
 PRODUCT_PACKAGES += \
