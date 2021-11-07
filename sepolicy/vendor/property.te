@@ -1,6 +1,6 @@
-type vendor_dpps_prop, property_type;
+type diag_prop, property_type;
 
-type thermal_normal_prop, property_type;
+type vendor_dpps_prop, property_type;
 
 type system_manufacturer_prop, property_type;
 
@@ -16,8 +16,14 @@ type vendor_fp_prop, property_type;
 # Mlipay
 type ifaa_prop, property_type;
 
+# NFC
+type vendor_nfc_prop, property_type;
+
 # Thermal
 type thermal_engine_prop, property_type;
+
+# Mi_thermald
+type thermal_normal_prop, property_type;
 
 # Touchfeature
 type vendor_touchfeature_prop, property_type;

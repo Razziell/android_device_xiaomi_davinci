@@ -3,3 +3,6 @@ allow hal_nfc_default nfc_vendor_data_file:file create_file_perms;
 
 add_hwservice(hal_nfc_default, nxpnfc_hwservice)
 allow hal_nfc_default nxpese_hwservice:hwservice_manager { find };
+
+# Allow hal_nfc_default to get vendor_nfc_prop
+get_prop(hal_nfc_default, vendor_nfc_prop)

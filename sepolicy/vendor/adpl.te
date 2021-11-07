@@ -1,0 +1,2 @@
+get_prop(adpl, diag_prop)
+allow adpl diag_device:chr_file rw_file_perms;
