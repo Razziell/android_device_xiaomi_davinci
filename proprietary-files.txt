@@ -167,6 +167,7 @@ vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/liba2dpoffload.so
 vendor/lib64/libbluetooth_audio_session_qti.so
 vendor/lib64/btaudio_offload_if.so
+vendor/lib64/hw/audio.bluetooth_qti.default.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib/btaudio_offload_if.so
 vendor/lib/hw/audio.bluetooth_qti.default.so
@@ -559,28 +560,43 @@ vendor/etc/init/dpmQmiMgr.rc
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 
-
 # DRM
 vendor/bin/qseecomd
 vendor/etc/gpfspath_oem_config.xml
 vendor/etc/init/qseecomd.rc
-vendor/lib64/libcpion.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
 vendor/lib64/libGPreqcancel.so
 vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so
-vendor/lib64/libqisl.so
 vendor/lib64/libQSEEComAPI.so
+vendor/lib64/libSecureUILib.so
+vendor/lib64/libStDrvInt.so
+vendor/lib64/libdrmfs.so
+vendor/lib64/libdrmtime.so
+vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
+vendor/lib64/libsecureui.so
+vendor/lib64/libsecureui_svcsock.so
+vendor/lib64/libsi.so
 vendor/lib64/libssd.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib/libcpion.so
+vendor/lib/libdrmfs.so
 
-# DRM (widevine) - from Mi 9T Pro QKQ1.190825.002 V11.0.8.0.QFKCNXM
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|1aed116c6cd73ee0c89a5eec050afab5c64b9f87
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|3522890cda1defadaaa79259f0fd28490f533c79
-vendor/lib64/libwvhidl.so|5aed414b3fdf20777b10e8fab51cd21090d5d760
-vendor/lib64/mediadrm/libwvdrmengine.so|4f78d73cfddc0b5bc9a5dcbb20470beaad0d3047
+# DRM - Widevine
+vendor/bin/hw/android.hardware.drm@1.2-service.widevine
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
+vendor/lib64/libbase64.so
+vendor/lib64/libcpion.so
+vendor/lib64/librmp.so
+vendor/lib64/mediadrm/libwvdrmengine.so
+vendor/lib/libbase64.so
+vendor/lib/libcppf.so
+vendor/lib/librmp.so
+vendor/lib/mediadrm/libwvdrmengine.so
+
+# DRM - Widevine
+vendor/lib64/liboemcrypto.so
+vendor/lib/liboemcrypto.so
+vendor/lib/libwvhidl.so
 
 # ESE-Powermanager
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
@@ -699,7 +715,6 @@ vendor/etc/qdcm_calib_data_ss_ea_fhd_cmd_dsi_panel.xml
 vendor/etc/qdcm_calib_data_ss_eb_fhd_cmd_dsi_panel.xml
 
 # Graphics - Display (from def_reteu-user-10-QPFS30.103-21-1-2-c993f-release-keys)
-vendor/lib64/libdisp-aba.so|3a35a8c7120d5f0748b4584dd56b1398d1acdd69
 vendor/lib64/libdisplayqos.so|86abe8922c686f205520b6980f337dda79182bec
 vendor/lib64/libhdr_tm.so|103b2f0893a767f162ffc2945b5edea062fb0354
 vendor/lib64/libqseed3.so|4a4fbff019467a4531816ab58e259b22d95630fa
@@ -1298,11 +1313,11 @@ vendor/etc/thermal-phone.conf
 vendor/etc/thermal-tgame.conf
 vendor/etc/thermald-devices.conf
 
-# Time - from LA.UM.8.9.r1-08400-SM6xx.0
--vendor/app/TimeService/TimeService.apk;:timeservice_app_cert|2a92ff670a09688bf2f56b63112a75c1f5e716b2
-vendor/bin/time_daemon|0212a141bf4ed8054986b0ca02987c05fb87cf36
-vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
-vendor/lib64/libtime_genoff.so|a3ff231b32d8878dff345b25027884dd8205c9a8
+# Time
+-vendor/app/TimeService/TimeService.apk;PRESIGNED
+vendor/bin/time_daemon
+vendor/etc/init/init.time_daemon.rc
+vendor/lib64/libtime_genoff.so
 
 # Touchfeature
 vendor/bin/hw/vendor.xiaomi.hardware.touchfeature@1.0-service
