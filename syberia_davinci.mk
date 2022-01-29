@@ -14,7 +14,7 @@ $(call inherit-product, device/xiaomi/davinci/device.mk)
 # Inherit some common syberia stuff.
 $(call inherit-product, vendor/syberia/common.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
-SYBERIA_BUILD_TYPE := OFFICIAL
+# SYBERIA_BUILD_TYPE := OFFICIAL
 
 PRODUCT_NAME := syberia_davinci
 PRODUCT_DEVICE := davinci
