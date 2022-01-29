@@ -112,4 +112,6 @@ void vendor_load_properties() {
     }
 
     property_override("ro.boot.hardware.revision", hardware_revision.c_str());
+    property_override("ro.build.type", "user");
+    property_override("ro.boot.verifiedbootstate", "green");
 }
