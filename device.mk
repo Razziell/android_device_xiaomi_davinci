@@ -32,7 +32,7 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    GoogleCamera
+    Camera2
 
 # Camera motor
 PRODUCT_PACKAGES += \
