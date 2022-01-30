@@ -1,0 +1,2 @@
+get_prop(vendor_qtidataservices_app, default_prop)
+get_prop(vendor_timeservice_app, default_prop)

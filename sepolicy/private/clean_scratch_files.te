@@ -1,0 +1,8 @@
+type clean_scratch_files, domain;
+type clean_scratch_files_exec, exec_type, file_type;
+typeattribute clean_scratch_files coredomain;
+
+# Started by init
+init_daemon_domain(clean_scratch_files)
+
+allow clean_scratch_files metadata_file:dir search;
