@@ -263,7 +263,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.1-service.xiaomi_sm6150
+    vendor.lineage.livedisplay@2.1-service.xiaomi_davinci
 
 # Media
 PRODUCT_PACKAGES += \

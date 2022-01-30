@@ -28,7 +28,8 @@ namespace livedisplay {
 namespace V2_1 {
 namespace implementation {
 
-static constexpr const char* kHbmStatusPath = "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
+static constexpr const char* kHbmStatusPath =
+        "/sys/devices/platform/soc/soc:qcom,dsi-display/hbm";
 
 Return<bool> SunlightEnhancement::isEnabled() {
     std::string buf;
