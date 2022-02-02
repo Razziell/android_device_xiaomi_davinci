@@ -55,6 +55,13 @@ void property_override(char const prop[], char const value[], bool add = true)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void property_override_dual(char const system_prop[],
+    char const vendor_prop[], char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void set_ro_build_prop(const std::string &prop, const std::string &value) {
     for (const auto &source : ro_props_default_source_order) {
         auto prop_name = "ro." + source + "build." + prop;
@@ -111,7 +118,14 @@ void vendor_load_properties() {
         property_override("ro.product.mod_device", mod_device.c_str());
     }
 
+    std::string build_type;
+    build_type = GetProperty("ro.build.type", "");
+    if (build_type == "userdebug") {
+        property_override_dual("ro.build.type", "ro.vendor.build.type", "user");
+        property_override_dual("ro.odm.build.type", "ro.product.build.type", "user");
+        property_override_dual("ro.system.build.type", "ro.system_ext.build.type", "user");
+    }
+
     property_override("ro.boot.hardware.revision", hardware_revision.c_str());
-    property_override("ro.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 }
