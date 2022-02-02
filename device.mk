@@ -128,10 +128,9 @@ PRODUCT_COPY_FILES += \
 # Camera motor
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.motor@1.0.vendor \
+    vendor.xiaomi.hardware.motor@1.0-service.rc \
     XiaomiPopupCamera
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/vendor.xiaomi.hardware.motor@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.xiaomi.hardware.motor@1.0-service.rc
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
@@ -185,9 +184,9 @@ PRODUCT_PACKAGES += \
     qcom.fmradio
 
 # Fstab
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.zram:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.zram
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    fstab.zram
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -231,15 +230,14 @@ PRODUCT_PACKAGES += \
     libhwbinder.vendor
 
 # Init scripts
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.usb.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.davinci.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.davinci.rc
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/init.qcom.post_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.post_boot.sh \
-    $(LOCAL_PATH)/rootdir/bin/init.qcom.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.sh
+PRODUCT_PACKAGES += \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    init.davinci.rc \
+    ueventd.qcom.rc \
+    init.qcom.post_boot.sh \
+    init.qcom.sh
 
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -419,10 +417,6 @@ PRODUCT_COPY_FILES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
-
-# Uevent
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 # USB
 PRODUCT_PACKAGES += \
