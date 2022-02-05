@@ -1,5 +1,6 @@
 # Bluetooth
 persist.vendor.bt.a2dp.aac_whitelist=false
+persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac
 persist.vendor.btstack.enable.splita2dp=true
 persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac
 persist.vendor.btstack.enable.twsplus=true
@@ -13,6 +14,7 @@ vendor.bluetooth.soc=cherokee
 # Camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 camera.disable_zsl_mode=1
+persist.camera.gyro.disable=0
 ro.hardware.fp.fod=true
 
 # CNE/DPM
@@ -25,9 +27,17 @@ persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.data.df.dev_name=rmnet_usb0
 persist.vendor.data.profile_update=true
 
+# GPS/GNSS
+persist.backup.ntpServer=0.pool.ntp.org
+
 # Graphics
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.has_HDR_display=true
+
+# IMS
+persist.radio.calls.on.ims=1
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableIMSLogs=1
 
 # LMKD
 ro.config.low_ram=false
@@ -54,11 +64,33 @@ vendor.mm.enable.qcom_parser=63963135
 # Netflix
 ro.netflix.bsp_rev=Q6150-17263-1
 
+# Network Location Provider
+ro.location.osnlp.package=com.google.android.gms
+ro.location.osnlp.region.package=""
+
 # NFC
 ro.nfc.port=I2C
 
+# Radio/RIL
+DEVICE_PROVISIONED=1
+persist.data.profile_update=true
+persist.radio.NO_STAPA=1
+persist.radio.VT_CAM_INTERFACE=1
+persist.radio.VT_HYBRID_ENABLE=1
+persist.radio.data_con_rprt=1
+persist.radio.data_ltd_sys_ind=1\
+persist.radio.dynamic_sar=true
+persist.radio.aosp_usr_pref_sel=true
+ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
+ril.subscription.types=NV,RUIM
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+
+# Simulate sdcard on /data/media
+persist.fuse_sdcard=true
+
 # Time
 persist.timed.enale=true
+persist.vendor.delta_time.enable=true
 
 # WiFi
 wifi.interface=wlan0
@@ -67,6 +99,12 @@ wifi.interface=wlan0
 debug.sf.latch_unsignaled=1
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
+
+# WLAN
+ro.wlan.vendor=qcom
+config.disable_rtt=true
+ro.wlan.mimo=0
+ro.wlan.chip=39xx
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true

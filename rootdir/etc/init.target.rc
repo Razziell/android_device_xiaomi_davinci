@@ -29,10 +29,6 @@
 
 on early-init
     write /proc/sys/kernel/sched_boost 1
-    mkdir /dsp 0771 media media
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-    symlink /data/tombstones /tombstones
 
 on init
     chown system camera /dev/drv8846_dev
@@ -62,7 +58,6 @@ on post-fs
     setrlimit 8 67108864 67108864
     write /dev/ipa 1
 
-    mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system

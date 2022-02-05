@@ -26,7 +26,13 @@ allow vendor_init sysfs_zram:file { create };
 
 allow vendor_init media_rw_data_file:file { getattr relabelfrom };
 allow vendor_init device:file create;
-allow vendor_init cnd_prop:property_service { set };
-allow vendor_init persist_camera_prop:property_service { set };
-allow vendor_init persist_dpm_prop:property_service { set };
+
+allow vendor_init {
+  cnd_prop
+  persist_camera_prop
+  persist_dpm_prop
+}:property_service { set };
+
+allow vendor_init default_prop:file { read };
+allow vendor_init persist_debug_prop:file { read };
 allow vendor_init proc_dirty:file { write };

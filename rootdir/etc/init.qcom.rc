@@ -748,8 +748,10 @@ service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
     class main
     disabled
+
 on property:persist.sys.qlogd=1
     start qlogd
+
 on property:persist.sys.qlogd=0
     stop qlogd
 
@@ -766,10 +768,6 @@ on charger
 
 on property:vendor.display.lcd_density=*
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
-
-# Set vendor-ril lib path based on Meta version
-on property:vendor.rild.libpath=*
-    setprop rild.libpath ${vendor.rild.libpath}
 
 on property:ro.vendor.radio.noril=*
     setprop ro.radio.noril ${ro.vendor.radio.noril}
@@ -808,6 +806,3 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     # an additional auto-restart from the init process isn't needed.
     socket audio_hw_socket seqpacket 0666 system system
     oneshot
-    interface android.hardware.audio@5.0::IDevicesFactory default
-    interface android.hardware.audio@4.0::IDevicesFactory default
-    interface android.hardware.audio@2.0::IDevicesFactory default
