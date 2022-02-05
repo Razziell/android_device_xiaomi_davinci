@@ -5,9 +5,8 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/syberia_davinci.mk
+    $(LOCAL_DIR)/lineage_davinci.mk
 
 COMMON_LUNCH_CHOICES := \
-    syberia_davinci-user \
-    syberia_davinci-userdebug \
-    syberia_davinci-eng
+    lineage_davinci-user \
+    lineage_davinci-userdebug
