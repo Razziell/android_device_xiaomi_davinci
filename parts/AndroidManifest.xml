@@ -21,11 +21,9 @@
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
@@ -52,26 +50,34 @@
             android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
             android:theme="@style/Theme.SubSettingsBase">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
         </activity>
 
+        <service
+            android:name=".popupcamera.PopupCameraService"
+            android:permission="PopupCameraService">
+        </service>
+
         <activity
-            android:name=".vibrator.VibratorSettingsActivity" 
-            android:label="@string/vibration_control_title"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:name=".popupcamera.PopupCameraSettingsActivity"
+            android:label="@string/popup_title"
+            android:theme="@style/Theme.SubSettingsBase"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ia.sound" />
+
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_popup" />
             <meta-data
                 android:name="com.android.settings.summary"
-                android:resource="@string/vibration_control_summary" />    
+                android:resource="@string/summary_empty" />
+            <meta-data
+                android:name="com.android.settings.order"
+                android:value="-255" />
         </activity>
 
     </application>

@@ -125,8 +125,7 @@ PRODUCT_COPY_FILES += \
 # Camera motor
 PRODUCT_PACKAGES += \
     vendor.xiaomi.hardware.motor@1.0.vendor \
-    vendor.xiaomi.hardware.motor@1.0-service.rc \
-    XiaomiPopupCamera
+    vendor.xiaomi.hardware.motor@1.0-service.rc
 
 
 # Device-specific settings

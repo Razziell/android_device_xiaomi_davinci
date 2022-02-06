@@ -10,17 +10,12 @@
         android:title="@string/popup_led_title" />
 
     <ListPreference
-        android:defaultValue="-1"
+        android:defaultValue="0"
         android:entries="@array/popupcamera_effects_entries"
         android:entryValues="@array/popupcamera_effects_values"
         android:icon="@drawable/ic_popup_sound"
         android:key="popup_sound_effect"
         android:summary="%s"
-        android:title="@string/popup_sound_title" />
+        android:title="@string/popup_title" />
 
-    <Preference
-        android:key="motor_calibration"
-        android:title="@string/popup_calibration_title"
-        android:summary="@string/popup_calibration_summary"
-        android:icon="@drawable/ic_popup_calibration" />
 </PreferenceScreen>
