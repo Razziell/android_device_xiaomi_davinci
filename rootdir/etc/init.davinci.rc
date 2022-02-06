@@ -6,6 +6,11 @@ service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
     writepid /dev/cpuset/system-background/tasks
     disabled
 
+service vendor.motor /vendor/bin/hw/vendor.xiaomi.hardware.motor@1.0-service
+    class hal
+    user system
+    group system
+
 on init && property:ro.boot.hwc=GLOBAL
     setprop ro.boot.product.hardware.sku davinci
 
