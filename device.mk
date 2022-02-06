@@ -250,10 +250,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.system.keystore2
 
-# Launcher
-PRODUCT_PACKAGES += \
-    Lawnchair
-
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_sm6150
