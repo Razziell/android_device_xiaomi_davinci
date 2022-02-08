@@ -89,7 +89,6 @@ rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 persist.fuse_sdcard=true
 
 # Time
-persist.timed.enale=true
 persist.vendor.delta_time.enable=true
 
 # WiFi
