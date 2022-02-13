@@ -218,6 +218,9 @@ case "$soc_id" in
     # Set Memory parameters
     configure_memory_parameters
 
+    # Enable boeffla_wakelock_blocker
+    echo 1 > /sys/class/misc/boeffla_wakelock_blocker/enabled
+
     # Enable bus-dcvs
     for device in /sys/devices/platform/soc
     do

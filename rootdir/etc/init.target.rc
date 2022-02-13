@@ -76,6 +76,10 @@ on post-fs-data
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
 
+    # Boeffla_wakelock_blocker
+    chown system system /sys/class/misc/boeffla_wakelock_blocker/enabled
+    chmod 0644 /sys/class/misc/boeffla_wakelock_blocker/enabled
+
     # FPSInfoService
     chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
     chmod 0666 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/measured_fps
