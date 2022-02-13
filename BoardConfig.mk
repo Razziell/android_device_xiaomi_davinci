@@ -115,8 +115,6 @@ BOARD_KERNEL_CMDLINE += kpti=off
 BOARD_KERNEL_CMDLINE += cgroup_disable=pressure
 BOARD_KERNEL_CMDLINE += loop.max_part=7
 
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
 # TARGET_KERNEL_APPEND_DTB handling
 ifeq ($(strip $(PRODUCT_USE_DYNAMIC_PARTITIONS)),true)
 BOARD_KERNEL_IMAGE_NAME := Image.gz

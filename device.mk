@@ -129,8 +129,7 @@ PRODUCT_PACKAGES += \
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    XiaomiParts \
-    init.safailnet.rc
+    XiaomiParts
 
 # Display
 PRODUCT_PACKAGES += \
