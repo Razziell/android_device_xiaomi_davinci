@@ -1,7 +1,14 @@
 # Bluetooth
-vendor.bluetooth.soc=cherokee
+persist.bluetooth.bqr.event_mask=14
+persist.bluetooth.bqr.min_interval_ms=500
+persist.vendor.bt.a2dp.aac_whitelist=false
+persist.vendor.bt.a2dp.mac_whitelist=false
+persist.vendor.bt.aac_frm_ctl.enabled=true
+persist.vendor.btsatck.absvolfeature=true
+persist.vendor.btstack.connect.peer_earbud=true
+persist.vendor.btstack.enable.twsplus=true
+persist.vendor.btstack.enable.twsplussho=true
 ro.bluetooth.library_name=libbluetooth_qti.so
-persist.bluetooth.disableinbandringing=false
 
 # Camera
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
@@ -41,8 +48,8 @@ ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
 
-# Recovery
-ro.recovery.ui.margin_height=48
+# Time
+persist.vendor.delta_time.enable=true
 
-# WiFi
-wifi.interface=wlan0
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=true
