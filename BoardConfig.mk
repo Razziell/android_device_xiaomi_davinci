@@ -231,4 +231,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from proprietary files
 include vendor/xiaomi/davinci/BoardConfigVendor.mk
-include vendor/xiaomi/sm6150-common/BoardConfigVendor.mk
