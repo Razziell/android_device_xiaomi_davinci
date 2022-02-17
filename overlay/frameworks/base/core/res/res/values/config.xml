@@ -1099,4 +1099,10 @@
          STATE_ON. Setting this to true will skip the brightness ramp to the last stored active
          brightness value and will repeat for the following ramp if autobrightness is enabled. -->
     <bool name="config_skipScreenOnBrightnessRamp">true</bool>
+
+    <!-- The list of components which should be automatically disabled for a specific device. -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
+    </string-array>
 </resources>
