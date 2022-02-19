@@ -626,4 +626,9 @@
           1: 2 button mode (back, home buttons + swipe up for overview)
           2: gestures only for back, home and overview -->
      <integer name="config_navBarInteractionMode">2</integer>
+
+    <!-- Control whether Night display is available. This should only be enabled on devices
+    that have a HWC implementation that can apply the matrix passed to setColorTransform
+    without impacting power, performance, and app compatibility (e.g. protected content). -->
+    <bool name="config_nightDisplayAvailable">true</bool>
 </resources>
