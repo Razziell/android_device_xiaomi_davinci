@@ -179,6 +179,7 @@ PRODUCT_COPY_FILES += \
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
+    libqcomfm_jni \
     qcom.fmradio
 
 # Fstab
@@ -264,6 +265,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.lineage.livedisplay@2.1-service.xiaomi_sm6150
 
 # Media
