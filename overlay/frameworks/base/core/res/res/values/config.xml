@@ -650,4 +650,8 @@
 
     <!-- Specifies the maximum burn-in offset vertically. -->
     <integer name="config_burnInProtectionMaxVerticalOffset">40</integer>
+
+     <!-- Package name of a telephony-related system app, such as an IMS service.
+         Exempted from privacy indicators. -->
+     <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
 </resources>
