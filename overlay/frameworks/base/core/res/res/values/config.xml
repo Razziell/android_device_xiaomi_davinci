@@ -655,10 +655,12 @@
          Exempted from privacy indicators. -->
      <string name="config_systemTelephonyPackage" translatable="false">com.qualcomm.qti.cne</string>
 
-
     <!-- Whether device supports sensor based doze customizations -->
     <bool name="config_dozePulsePickup">true</bool>
     <bool name="config_dozePulseTilt">true</bool>
     <bool name="config_dozePulseProximity">true</bool>
     <bool name="config_deviceHaveWakeUpProximity">true</bool>
+
+   <!-- Screen off UDFPS -->
+    <bool name="config_supportScreenOffUdfps">true</bool>
 </resources>
