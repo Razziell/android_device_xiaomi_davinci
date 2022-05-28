@@ -86,6 +86,7 @@ on post-fs-data
 
 on boot
     start vendor.rmt_storage
+    start vendor.msm_irqbalance
 
     # Set thermal mode to evaluation
     chown system system /sys/class/thermal/thermal_message/sconfig
