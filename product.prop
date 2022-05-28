@@ -26,6 +26,7 @@ iorapd.readahead.enable=true
 persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
 # LMKD
+ro.lmk.use_psi=true
 ro.config.low_ram=false
 ro.lmk.low=1001
 ro.lmk.medium=800
@@ -35,7 +36,6 @@ ro.lmk.upgrade_pressure=100
 ro.lmk.downgrade_pressure=100
 ro.lmk.kill_heaviest_task=true
 ro.lmk.kill_timeout_ms=100
-ro.lmk.use_minfree_levels=true
 #new configs
 ro.lmk.psi_partial_stall_ms=70
 ro.lmk.psi_complete_stall_ms=700
