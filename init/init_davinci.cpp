@@ -66,6 +66,7 @@ void load_davinciglobal() {
     property_override("ro.com.google.clientidbase.ms", "android-xiaomi-rev1");
     property_override("ro.product.mod_device", "davinci_global");
     property_override("ro.boot.verifiedbootstate", "green");
+    property_override("ro.crypto.state", "encrypted");
 }
 
 void load_davinci() {
@@ -78,6 +79,7 @@ void load_davinci() {
     property_override("ro.com.google.clientidbase.ms", "android-xiaomi-rev1");
     property_override("ro.product.mod_device", "davinci_global");
     property_override("ro.boot.verifiedbootstate", "green");
+    property_override("ro.crypto.state", "encrypted");
 }
 
 void vendor_load_properties()
