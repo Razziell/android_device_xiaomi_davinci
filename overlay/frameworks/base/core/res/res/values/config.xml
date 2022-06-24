@@ -615,9 +615,6 @@
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
 
-    <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
-    <bool name="config_zramWriteback">true</bool>
-
     <!-- Controls the navigation bar interaction mode:
           0: 3 button mode (back, home, overview buttons)
           1: 2 button mode (back, home buttons + swipe up for overview)
