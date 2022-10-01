@@ -1099,4 +1099,7 @@
          STATE_ON. Setting this to true will skip the brightness ramp to the last stored active
          brightness value and will repeat for the following ramp if autobrightness is enabled. -->
     <bool name="config_skipScreenOnBrightnessRamp">true</bool>
+    
+    <!-- IP address of the dns server to use if nobody else suggests one -->
+    <string name="config_default_dns_server" translatable="false">1.1.1.1</string>
 </resources>
